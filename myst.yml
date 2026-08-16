@@ -1,0 +1,15 @@
+version: 1
+
+project:
+  title: "Apuntes de Computación"
+
+  toc:
+    - file: index.md
+
+    - title: "Fundamento de Programación"
+      children:
+        - file: algoritmos-programacion/introduccion_al_uso_de_python.ipynb
+
+site:
+  template: book-theme
+  title: "Apuntes de Computación"
