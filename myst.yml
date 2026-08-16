@@ -8,7 +8,7 @@ project:
 
     - title: "Fundamento de Programación"
       children:
-        - file: algoritmos-programacion/introduccion_al_uso_de_python.ipynb
+        - file: fundamentos-programacion/introduccion_al_uso_de_python.ipynb
 
 site:
   template: book-theme
