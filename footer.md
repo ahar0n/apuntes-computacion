@@ -1,1 +1,1 @@
-© 2026 Aharon. Apuntes de Computación.
+© 2026 Aharon.

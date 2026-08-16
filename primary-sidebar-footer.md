@@ -1,3 +1,1 @@
-**Apuntes de Computación**
-
-Material docente universitario.
+_Última actualización agosto, 2026._ 

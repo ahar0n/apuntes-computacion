@@ -1,18 +1,20 @@
 version: 1
 
 project:
-  title: "Apuntes de Computación"
+  title: "Apuntes de computación"
 
   toc:
     - file: index.md
 
-    - title: "Fundamentos de Programación"
+    - title: "Fundamentos de programación"
       children:
         - file: fundamentos-programacion/introduccion_al_uso_de_python.ipynb
 
 site:
   template: book-theme
-  title: "Apuntes de Computación"
+
+  options:
+    logo_text: "Material docente"
 
   parts:
     primary_sidebar_footer: primary-sidebar-footer.md
