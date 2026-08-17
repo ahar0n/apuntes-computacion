@@ -9,6 +9,12 @@ project:
     - title: "Fundamentos de programación"
       children:
         - file: fundamentos-programacion/introduccion_al_uso_de_python.ipynb
+        - file: fundamentos-programacion/tipos_y_operadores.ipynb
+        - file: fundamentos-programacion/expresiones_y_sentencias.ipynb
+        - file: fundamentos-programacion/ejercicios_expresiones_y_operadores.ipynb
+        - file: fundamentos-programacion/ejercicios_algoritmos_con_flujo_normal.ipynb
+        - file: fundamentos-programacion/secuencias.ipynb
+        - file: fundamentos-programacion/ejercicios_secuencias_basico.ipynb
 
 site:
   template: book-theme
