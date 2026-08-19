@@ -1,1 +1,1 @@
-_Última actualización agosto, 2026._ 
+© 2026 Aharon · [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)

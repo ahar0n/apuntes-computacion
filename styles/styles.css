@@ -1,0 +1,133 @@
+/* Fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Fira+Sans:wght@300;400;500&display=swap');
+
+/* ==========================
+   Texto principal
+   ========================== */
+
+body {
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 300;
+}
+
+
+/* ==========================
+   Títulos
+   ========================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+}
+
+h1 {
+    font-weight: 500;
+}
+
+
+/* ==========================
+   Negritas y enlaces
+   ========================== */
+
+strong,
+b {
+    font-weight: 400;
+}
+
+a {
+    font-weight: 300;
+}
+
+
+/* ==========================
+   Código fuente
+   ========================== */
+
+code,
+pre,
+.myst-code {
+    font-family: "Fira Code", monospace;
+    font-weight: 200;
+    font-size: 0.95rem;
+    letter-spacing: -0.025em;
+}
+
+
+/* Código inline */
+:not(pre) > code {
+    font-size: 0.9em;
+    padding: 0.1em 0.25em;
+}
+
+
+/* Bloques de código */
+pre {
+    line-height: 1.45;
+    padding: 0.75rem 1rem;
+}
+
+
+/* Código dentro del bloque */
+pre code {
+    line-height: 1.45;
+    letter-spacing: -0.03em;
+}
+
+
+/* ==========================
+   Índice lateral
+   ========================== */
+
+.myst-outline-header {
+    font-weight: 400;
+}
+
+.myst-outline-list {
+    font-weight: 300;
+}
+
+
+
+
+
+
+
+/* Oculta el botón de descarga del notebook fuente */
+.myst-fm-downloads-button {
+    display: none !important;
+}
+
+/* Bibliografía: traducir "References" a "Referencias" */
+.myst-bibliography-header {
+    font-size: 0;
+}
+
+.myst-bibliography-header::before {
+    content: "Referencias";
+    font-size: 1.125rem;
+}
+
+/* Mantener visible el enlace ¶ del encabezado */
+.myst-bibliography-header > a {
+    font-size: 1rem;
+}
+
+/* Cambiar Contents a Contenido sin afectar el botón */
+.myst-outline-header {
+    font-size: 0;
+}
+
+.myst-outline-header::before {
+    content: "Contenido";
+    font-size: 0.875rem;
+}
+
+.myst-outline-header button {
+    font-size: initial;
+}
