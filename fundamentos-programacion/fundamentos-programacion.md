@@ -2,8 +2,6 @@
 title: Fundamentos de Programación
 ---
 
-# Fundamentos de Programación
-
 Este material presenta los conceptos fundamentales necesarios para comprender el diseño, representación e implementación de soluciones algorítmicas mediante un lenguaje de programación de propósito general. Su propósito principal es apoyar el aprendizaje sistemático de la programación, privilegiando la comprensión de los principios conceptuales por sobre construcciones sintácticas específicas.
 
 Los contenidos se articulan en torno al análisis de problemas, la formulación de algoritmos, el uso de estructuras de control, la organización y manipulación de datos, la abstracción mediante funciones y la construcción progresiva de programas. Python se utiliza como lenguaje de implementación debido a su sintaxis clara y a su utilidad para expresar y analizar los conceptos estudiados.

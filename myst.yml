@@ -10,9 +10,7 @@ project:
   toc:
     - file: index.md
 
-    - title: "Fundamentos de Programación"
-      file: fundamentos-programacion/index.md
-
+    - file: fundamentos-programacion/fundamentos-programacion.md
       children:
         - file: fundamentos-programacion/introduccion_al_uso_de_python.ipynb
 
