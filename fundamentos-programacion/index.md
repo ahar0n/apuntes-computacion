@@ -1,3 +1,7 @@
+---
+title: Fundamentos de Programación
+---
+
 # Fundamentos de Programación
 
 Este material presenta los conceptos fundamentales necesarios para comprender el diseño, representación e implementación de soluciones algorítmicas mediante un lenguaje de programación de propósito general. Su propósito principal es apoyar el aprendizaje sistemático de la programación, privilegiando la comprensión de los principios conceptuales por sobre construcciones sintácticas específicas.
