@@ -12,6 +12,9 @@ project:
 
     - file: fundamentos-programacion/fundamentos-programacion.md
       children:
+        - file: fundamentos-programacion/resolucion_de_problemas_y_algoritmos.md
+
+
         - file: fundamentos-programacion/introduccion_al_uso_de_python.ipynb
 
         - title: "Datos, expresiones y sentencias"
