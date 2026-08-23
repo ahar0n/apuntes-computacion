@@ -12,8 +12,12 @@ project:
 
     - file: fundamentos-programacion/fundamentos-programacion.md
       children:
-        - file: fundamentos-programacion/resolucion_de_problemas_y_algoritmos.md
 
+        - title: "Resolución de problemas y algoritmos"
+          children:
+          - file: fundamentos-programacion/pensamiento_computacional.md
+          - file: fundamentos-programacion/analisis_y_especificacion.md
+          - file: fundamentos-programacion/diseno_y_representacion.md
 
         - file: fundamentos-programacion/introduccion_al_uso_de_python.ipynb
 
