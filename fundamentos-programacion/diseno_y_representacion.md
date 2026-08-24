@@ -105,6 +105,16 @@ Una representación es incorrecta si:
 
 También pierde precisión si emplea símbolos distintos para una misma función o contradice la dirección indicada por las flechas (errores de notación).
 
-## Comprobación de la representación
+## Consistencia de la representación
 
-Para verificar la representación del algoritmo, se comienza asociando cada paso del algoritmo con un símbolo del diagrama. Después se recorre el flujo desde el inicio hasta el fin y se registran los datos y resultados intermedios producidos por cada operación. El diagrama se acepta si utiliza únicamente los datos definidos, ejecuta todas las operaciones en el orden requerido y produce la salida establecida por la especificación.
+La revisión de una representación determina si esta corresponde exactamente al algoritmo diseñado. Esta revisión no demuestra la corrección del algoritmo; establece que el diagrama conserva sus operaciones, sus datos y su orden de ejecución. Un diagrama puede representar fielmente un algoritmo que no satisface la especificación.
+
+La revisión comprende las siguientes tareas:
+- **Asociar las operaciones:** vincular cada operación del algoritmo con el símbolo que la representa en el diagrama.
+- **Comprobar la integridad:** verificar que todas las operaciones del algoritmo aparezcan en el diagrama y que no se hayan incorporado operaciones que no forman parte del diseño.
+- **Revisar el orden:** recorrer el flujo de inicio a fin y confirmar que las operaciones mantengan el orden establecido por el algoritmo.
+- **Examinar las dependencias de datos:** comprobar que cada dato sea obtenido o calculado antes de utilizarse y que los resultados intermedios estén disponibles cuando sean requeridos.
+- **Verificar el recorrido:** confirmar que el inicio y el fin sean inequívocos y que las flechas o flujos establezcan una dirección de ejecución clara.
+- **Registrar las discrepancias:** identificar las operaciones omitidas, añadidas o ubicadas en un orden incorrecto y corregir la representación.
+
+El diagrama se considera consistente cuando representa todas las operaciones del algoritmo, conserva su orden y utiliza únicamente datos disponibles en cada punto del recorrido. Una vez establecida esta correspondencia, la corrección del algoritmo debe evaluarse mediante casos de prueba y una justificación de su relación con la especificación.

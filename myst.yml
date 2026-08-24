@@ -18,6 +18,7 @@ project:
           - file: fundamentos-programacion/pensamiento_computacional.md
           - file: fundamentos-programacion/analisis_y_especificacion.md
           - file: fundamentos-programacion/diseno_y_representacion.md
+          - file: fundamentos-programacion/prueba_y_verificacion.md
 
         - file: fundamentos-programacion/introduccion_al_uso_de_python.ipynb
 

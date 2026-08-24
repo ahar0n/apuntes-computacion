@@ -2,15 +2,16 @@
 
 ## Resolución algorítmica
 
-La resolución algorítmica de un problema comienza con su delimitación y con el diseño de un procedimiento que produzca el resultado especificado. El pensamiento computacional sustenta este proceso mediante el análisis y la especificación del problema, el diseño y la representación del algoritmo, y la comprobación de su comportamiento. Este enfoque coincide con las orientaciones curriculares que proponen estudiar los fundamentos algorítmicos con independencia del lenguaje de programación, el paradigma y el hardware utilizados [@kumar2024cs2023].
+La resolución algorítmica de un problema comienza con su delimitación y con el diseño de un procedimiento que produzca el resultado especificado. El pensamiento computacional proporciona recursos para analizar el problema, abstraer la información relevante y organizar una solución precisa. Una vez diseñado, el algoritmo debe someterse a pruebas y razonamientos que permitan evaluar su correspondencia con la especificación. Su implementación en un lenguaje de programación constituye una etapa posterior. Este enfoque coincide con las orientaciones propuestas para estudiar los fundamentos algorítmicos con independencia del lenguaje, el paradigma y el hardware utilizados [@kumar2024cs2023].
 
 Un **algoritmo** es un procedimiento finito y preciso que transforma datos de entrada en resultados de salida mediante una secuencia de operaciones aplicable a todas las instancias admitidas del problema. Un **programa**, en cambio, expresa uno o más algoritmos en un lenguaje de programación y permite que un computador los ejecute [@cormen2022algorithms; @kumar2024cs2023].
 
-La resolución se organiza en tres etapas:
+La resolución se organiza en cuatro etapas:
 
 1. **Análisis y especificación:** delimitar el problema y establecer sus entradas, salidas, restricciones, supuestos y relación entrada-salida.
-2. **Diseño y representación:** construir el algoritmo y expresarlo de manera que puedan examinarse sus operaciones y su correspondencia con la especificación.
-3. **Implementación:** traducir el algoritmo a un lenguaje de programación.
+2. **Diseño y representación:** construir el algoritmo y expresarlo mediante una representación que permita examinar sus operaciones y su correspondencia con la especificación.
+3. **Prueba y verificación:** ejecutar el algoritmo con casos seleccionados, comparar los resultados con los esperados y justificar, cuando sea posible, que satisface la especificación para todas las entradas admitidas.
+4. **Implementación:** expresar el algoritmo en un lenguaje de programación, manteniendo la correspondencia con el diseño previamente verificado.
 
 ## Problemas e instancias
 
