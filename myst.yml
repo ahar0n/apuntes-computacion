@@ -27,6 +27,7 @@ project:
             - file: fundamentos-programacion/ejercicios_condicionales.ipynb
             - file: fundamentos-programacion/bucles.ipynb
             - file: fundamentos-programacion/control_del_flujo_iterativo.ipynb
+            - file: fundamentos-programacion/ejercicios_break_continue.ipynb
 
 
         - title: "Estructuras de datos"
