@@ -57,10 +57,10 @@ Todo diagrama debe presentar un inicio y fin identificables, rutas completas, un
 
 Para simplificar la representación, en este libro se puede la adopta la convención de omitir las etiquetas «Verdadero» y «Falso» cuando la rama correspondiente al resultado verdadero continúa sobre el eje principal del diagrama. En los demás casos, cada etiqueta se sitúa sobre la línea de flujo que sale del rombo, junto a la rama correspondiente.
 
-:::{hint} Ejemplo: Diseño y representación de algoritmos.
-:label: ejemplo-diseno_y_representacion
+:::{hint} Ejemplo de diseño de algoritmo: precio con descuento.
+:label: ejemplo-diseno-descuento
 
-La especificación @ejemplo-analisis_especificacion establece el resultado que debe obtenerse. El diseño descompone esa relación en dos cálculos consecutivos mediante el valor descontado $D$. De esta forma, el algoritmo queda definido por la siguiente secuencia de pasos:
+A partir de [la especificación del precio con descuento](#ejemplo-especificacion-descuento), el diseño descompone esa relación en dos cálculos consecutivos mediante el valor descontado $D$. De esta forma, el algoritmo queda definido por la siguiente secuencia de pasos:
 
 1. Obtener el precio inicial $P$ y el porcentaje de descuento $d$.
 2. Calcular el valor de descuento: $D=P\cdot d/100$.
@@ -93,7 +93,7 @@ flowchart TD
 
 La especificación determina qué relación debe satisfacer el resultado; el algoritmo descompone esa relación en operaciones; y el diagrama representa el orden de ejecución. Las tres descripciones deben ser equivalentes respecto de las entradas admitidas y la salida producida.
 
-La correspondencia se comprueba desde la salida hacia las entradas. En el @ejemplo-diseno_y_representacion, la salida $F$ depende de $P$ y de $D$; a su vez, $D$ depende de $P$ y $d$. El algoritmo calcula esas dependencias en un orden válido y el diagrama conserva ese mismo orden. Ninguna operación puede añadirse, omitirse o cambiarse sin revisar las otras representaciones.
+La correspondencia se comprueba desde la salida hacia las entradas. En el [ejemplo](#ejemplo-diseno-descuento), la salida $F$ depende de $P$ y de $D$; a su vez, $D$ depende de $P$ y $d$. El algoritmo calcula esas dependencias en un orden válido y el diagrama conserva ese mismo orden. Ninguna operación puede añadirse, omitirse o cambiarse sin revisar las otras representaciones.
 
 ## Errores de representación
 

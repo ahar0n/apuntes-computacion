@@ -14,8 +14,8 @@ Posteriormente, estas ideas podrán formalizarse mediante **precondiciones**, qu
 
 El análisis comienza al delimitar el resultado requerido. Después se identifican los datos de entrada, se establecen sus restricciones y se declaran los supuestos que acotan el problema. Con estos elementos se formula la relación matemática o lógica que debe existir entre las entradas y la salida. El procedimiento concluye al comprobar que la especificación permite determinar el resultado esperado para cualquier instancia admitida sin depender de decisiones de implementación.
 
-:::{hint} Ejemplo: Análisis y especificación del problema
-:label: ejemplo-analisis_especificacion
+:::{hint} Ejemplo de análisis y especificación: precio con descuento.
+:label: ejemplo-especificacion-descuento
 
 Calcular el valor que debe pagar una persona por un producto al que se aplica un descuento porcentual.
 
@@ -33,7 +33,7 @@ F = P\left(1-\frac{d}{100}\right)
 La especificación incluye los casos $d=0$, $d=100$ y $P=0$. Estos valores permiten comprobar que la relación está definida en los extremos del dominio.
 :::
 
-## Ambiguedades del problema
+## Ambigüedades del problema
 
 Durante el análisis y la especificación del problema debe comprobarse que el enunciado contenga la información necesaria para definir el problema sin ambigüedades. Por ejemplo, la instrucción «calcular el promedio de notas» es insuficiente si no especifica cuántas notas intervienen, qué valores admiten, si todas tienen la misma ponderación y qué resultado corresponde cuando no existen notas.
 
