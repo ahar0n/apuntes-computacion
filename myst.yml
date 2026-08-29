@@ -15,34 +15,34 @@ project:
 
         - title: "Resolución de problemas y algoritmos"
           children:
-          - file: fundamentos-programacion/pensamiento_computacional.md
-          - file: fundamentos-programacion/analisis_y_especificacion.md
-          - file: fundamentos-programacion/diseno_y_representacion.md
-          - file: fundamentos-programacion/prueba_y_verificacion.md
-          - file: fundamentos-programacion/ejercicios_resolucion_de_problemas.md
+          - file: fundamentos-programacion/resolucion-de-problemas-y-algoritmos/pensamiento-computacional.md
+          - file: fundamentos-programacion/resolucion-de-problemas-y-algoritmos/analisis-y-especificacion.md
+          - file: fundamentos-programacion/resolucion-de-problemas-y-algoritmos/diseno-y-representacion.md
+          - file: fundamentos-programacion/resolucion-de-problemas-y-algoritmos/prueba-y-verificacion.md
+          - file: fundamentos-programacion/resolucion-de-problemas-y-algoritmos/ejercicios-resolucion-de-problemas.md
 
-        - file: fundamentos-programacion/introduccion_al_uso_de_python.ipynb
+        - file: fundamentos-programacion/introduccion-al-uso-de-python.ipynb
 
         - title: "Datos, expresiones y sentencias"
           children:
-            - file: fundamentos-programacion/tipos_y_operadores.ipynb
-            - file: fundamentos-programacion/expresiones_y_sentencias.ipynb
-            - file: fundamentos-programacion/ejercicios_expresiones_y_operadores.ipynb
+            - file: fundamentos-programacion/datos-tipos-expresiones/tipos-y-operadores.ipynb
+            - file: fundamentos-programacion/datos-tipos-expresiones/expresiones-y-sentencias.ipynb
+            - file: fundamentos-programacion/datos-tipos-expresiones/ejercicios-expresiones-y-operadores.ipynb
 
         - title: "Control de flujo"
           children:
-            - file: fundamentos-programacion/ejercicios_algoritmos_con_flujo_normal.ipynb
-            - file: fundamentos-programacion/condicionales.ipynb
-            - file: fundamentos-programacion/ejercicios_condicionales.ipynb
-            - file: fundamentos-programacion/bucles.ipynb
-            - file: fundamentos-programacion/control_del_flujo_iterativo.ipynb
-            - file: fundamentos-programacion/ejercicios_break_continue.ipynb
+            - file: fundamentos-programacion/control-de-flujo/ejercicios-algoritmos-con-flujo-normal.ipynb
+            - file: fundamentos-programacion/control-de-flujo/condicionales.ipynb
+            - file: fundamentos-programacion/control-de-flujo/ejercicios-condicionales.ipynb
+            - file: fundamentos-programacion/control-de-flujo/bucles.ipynb
+            - file: fundamentos-programacion/control-de-flujo/control-del-flujo-iterativo.ipynb
+            - file: fundamentos-programacion/control-de-flujo/ejercicios-break-continue.ipynb
 
 
         - title: "Estructuras de datos"
           children:
-            - file: fundamentos-programacion/secuencias.ipynb
-            - file: fundamentos-programacion/ejercicios_uso_de_secuencias.ipynb
+            - file: fundamentos-programacion/estructuras-de-datos/secuencias.ipynb
+            - file: fundamentos-programacion/estructuras-de-datos/ejercicios-uso-de-secuencias.ipynb
 
         - title: "Persistencia"
           children:
