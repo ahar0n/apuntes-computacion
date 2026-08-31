@@ -25,9 +25,9 @@ project:
 
         - title: "Datos, expresiones y sentencias"
           children:
-            - file: fundamentos-programacion/datos-tipos-expresiones/tipos-y-operadores.ipynb
-            - file: fundamentos-programacion/datos-tipos-expresiones/expresiones-y-sentencias.ipynb
-            - file: fundamentos-programacion/datos-tipos-expresiones/ejercicios-expresiones-y-operadores.ipynb
+            - file: fundamentos-programacion/datos-expresiones-sentencias/tipos-y-operadores.ipynb
+            - file: fundamentos-programacion/datos-expresiones-sentencias/expresiones-y-sentencias.ipynb
+            - file: fundamentos-programacion/datos-expresiones-sentencias/ejercicios-expresiones-y-operadores.ipynb
 
         - title: "Control de flujo"
           children:
@@ -43,6 +43,13 @@ project:
           children:
             - file: fundamentos-programacion/estructuras-de-datos/secuencias.ipynb
             - file: fundamentos-programacion/estructuras-de-datos/ejercicios-uso-de-secuencias.ipynb
+
+
+        - title: "Modularidad y funciones"
+          children:
+            - file: fundamentos-programacion/modularidad-y-funciones/descomposicion-de-problemas.ipynb
+            - file: fundamentos-programacion/modularidad-y-funciones/definicion-y-uso-de-funciones.md
+            - file: fundamentos-programacion/modularidad-y-funciones/ambito-local-funciones-y-procedimientos.md
 
         - title: "Persistencia"
           children:
