@@ -47,7 +47,7 @@ project:
 
         - title: "Modularidad y funciones"
           children:
-            - file: fundamentos-programacion/modularidad-y-funciones/descomposicion-de-problemas.ipynb
+            - file: fundamentos-programacion/modularidad-y-funciones/descomposicion-de-problemas.md
             - file: fundamentos-programacion/modularidad-y-funciones/definicion-y-uso-de-funciones.md
             - file: fundamentos-programacion/modularidad-y-funciones/ambito-local-funciones-y-procedimientos.md
 
