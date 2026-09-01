@@ -39,7 +39,7 @@ def es_observacion_valida(valor):
     return observacion_valida
 ```
 
-El encabezado identifica la operación y declara su parámetro, de acuerdo con los datos requeridos de la [especificación](#tab-cap07-especificacion-validacion). La expresión relacional implementa la condición indicada en la poscondición y `return` entrega el valor booleano. La cadena de documentación resume el propósito; no reemplaza la especificación completa, pues no expresa por sí sola todas las restricciones del dominio.
+El encabezado identifica la operación y declara su parámetro, de acuerdo con los datos requeridos de la [especificación](#tab-cap07-especificacion-validacion). La expresión relacional implementa la condición indicada en la postcondición y `return` entrega el valor booleano. La cadena de documentación resume el propósito; no reemplaza la especificación completa, pues no expresa por sí sola todas las restricciones del dominio.
 
 La otra [especificación](#tab-cap07-especificacion-promedio) se traduce en una segunda definición.
 
@@ -63,7 +63,7 @@ def calcular_promedio(observaciones_validas):
     return promedio
 ```
 
-La función tiene como parámetro la lista declarada en datos de requeridos de la [especificación](#tab-cap07-especificacion-promedio). Realiza internamente el recorrido necesario para obtener la suma y la cantidad. Las variables `suma`, `cantidad` y `promedio` permiten implementar la relación establecida por la poscondición.
+La función tiene como parámetro la lista declarada en datos de requeridos de la [especificación](#tab-cap07-especificacion-promedio). Realiza internamente el recorrido necesario para obtener la suma y la cantidad. Las variables `suma`, `cantidad` y `promedio` permiten implementar la relación establecida por la postcondición.
 
 ::::
 
@@ -74,7 +74,7 @@ Una **llamada** solicita la ejecución de una función y proporciona los datos c
 
 ```{figure} ../../assets/images/fundamentos-programacion/function_flow.png
 :alt: Flujo de control de la llamada a una función.
-:width: 200px
+:width: 210px
 :align: left
 
 Flujo de control da la llamada a una función.
@@ -206,4 +206,6 @@ La separación resulta decisiva para la composición. Si una función retorna un
 
 Las dos funciones ya definidas producen valores de distinta naturaleza. [`es_observacion_valida`](#code-es_observacion_valida) retorna un valor booleano (`bool`) que permite decidir si una observación puede incorporarse al procesamiento. [`calcular_promedio`](#code-calcular_promedio) retorna un valor numérico obtenido a partir de la lista recibida. En esta última función, `suma` y `cantidad` son resultados intermedios de la implementación, mientras que `promedio` contiene el resultado que se entrega a la llamada.
 
-La precondición de [`calcular_promedio`](#tab-cap07-especificacion-promedio) garantiza que la lista no está vacía y, por tanto, que `cantidad` será mayor que cero al finalizar el recorrido. La sentencia `return` termina la ejecución de la función y entrega el valor de su expresión. Si una función termina sin ejecutar una sentencia `return` con una expresión, Python produce el valor `None` [@python314simple]. Este comportamiento del lenguaje no convierte una operación de salida en un retorno.
+La precondición de [`calcular_promedio`](#tab-cap07-especificacion-promedio) garantiza que la lista no está vacía y, por tanto, que `cantidad` (ver [implementación](#code-calcular_promedio)) será mayor que cero al finalizar el recorrido. La sentencia `return` termina la ejecución de la función y entrega el valor de su expresión. 
+
+Si una función termina sin ejecutar una sentencia `return` con una expresión, Python produce el valor `None` [@python314simple]. Este comportamiento del lenguaje no convierte una operación de salida en un retorno.

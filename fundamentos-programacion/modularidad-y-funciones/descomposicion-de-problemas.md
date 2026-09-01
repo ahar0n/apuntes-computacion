@@ -90,11 +90,11 @@ La abstracción funcional también contribuye a delimitar responsabilidades. Una
 
 ## Especificación de una función
 
-La **especificación de una función** describe el comportamiento que debe proporcionar una operación con independencia de la implementación utilizada para realizarla [@liskov1986abstraction]. Para expresar con mayor precisión las restricciones aplicables y las propiedades del resultado pueden emplearse precondiciones y poscondiciones [@hoare1969axiomatic]:
+La **especificación de una función** describe el comportamiento que debe proporcionar una operación con independencia de la implementación utilizada para realizarla [@liskov1986abstraction]. Para expresar con mayor precisión las restricciones aplicables y las propiedades del resultado pueden emplearse precondiciones y postcondiciones [@hoare1969axiomatic]:
 
 - La **precondición** delimita los casos para los cuales se establece su comportamiento. Una ejecución con datos que no satisfacen estas restricciones queda fuera del dominio especificado, salvo que la propia especificación determine cómo deben tratarse.
 
-- La **poscondición** es la propiedad que debe cumplir el resultado. Expresa la relación entre los datos proporcionados y el resultado obtenido, siempre que la precondición se haya satisfecho.
+- La **postcondición** es la propiedad que debe cumplir el resultado. Expresa la relación entre los datos proporcionados y el resultado obtenido, siempre que la precondición se haya satisfecho.
 
 Algunas funciones producen además acciones perceptibles desde otras partes de la solución, como leer un dato o mostrar información. Estas acciones constituyen **efectos observables** y deben declararse cuando formen parte del comportamiento especificado. Una función que solo calcula y entrega un resultado no tiene los mismos efectos que una operación que muestra ese resultado, aunque ambas intervengan en una misma tarea.
 
@@ -107,14 +107,14 @@ En el [ejemplo](#ejemplo-solucion-monolitica), la operación que determina la va
 :label: tab-cap07-especificacion-validacion
 :align: center
 
-| Elemento                   | Descripción                                                                                                |
-|:---------------------------|:-----------------------------------------------------------------------------------------------------------|
-| Propósito                  | Determinar si una observación pertenece al intervalo válido.                                               |
-| Datos requeridos           | Una observación entera.                                                                                    |
-| Precondición               | La observación es un número entero.                                                                        |
-| Resultado                  | Un valor booleano.                                                                                         |
-| Poscondición               | El resultado es verdadero exactamente cuando la observación pertenece al intervalo cerrado de `0` a `100`. |
-| Efectos observables        | Ninguno.                                                                                                   |
+| Elemento            | Descripción                                                                                                |
+|:--------------------|:-----------------------------------------------------------------------------------------------------------|
+| Propósito           | Determinar si una observación pertenece al intervalo válido.                                               |
+| Datos requeridos    | Una observación entera.                                                                                    |
+| Precondición        | La observación es un número entero.                                                                        |
+| Resultado           | Un valor booleano.                                                                                         |
+| Postcondición       | El resultado es verdadero exactamente cuando la observación pertenece al intervalo cerrado de `0` a `100`. |
+| Efectos observables | Ninguno.                                                                                                   |
 :::
 
 Los valores enteros inferiores a `0` o superiores a `100` no incumplen la precondición de esta operación. La función debe aceptarlos y producir `False`, porque su propósito consiste precisamente en decidir si una observación pertenece al intervalo válido. En cambio, un dato que no sea entero queda fuera del dominio establecido por esta especificación.
@@ -131,10 +131,10 @@ Una segunda responsabilidad consiste en calcular el promedio de las observacione
 | Datos requeridos    | Lista de números enteros pertenecientes al intervalo de `0` a `100`.                   |
 | Precondición        | La lista contiene al menos un elemento y todos sus valores son observaciones válidas.  |
 | Resultado           | Un número que representa el promedio aritmético.                                       |
-| Poscondición        | El resultado es igual a la suma de las observaciones validas dividida por su cantidad. |
+| Postcondición       | El resultado es igual a la suma de las observaciones validas dividida por su cantidad. |
 | Efectos observables | Ninguno.                                                                               |
 :::
 
 ::::
 
-La especificación y la implementación cumplen funciones diferentes. La primera establece el comportamiento requerido, la segunda contiene las instrucciones que lo realizan. Pueden existir implementaciones distintas de una misma especificación, siempre que todas produzcan el resultado y los efectos establecidos para los datos admitidos. Si la precondición se satisface y el resultado no cumple la poscondición, la implementación no satisface la especificación.
+La especificación y la implementación cumplen funciones diferentes. La primera establece el comportamiento requerido, la segunda contiene las instrucciones que lo realizan. Pueden existir implementaciones distintas de una misma especificación, siempre que todas produzcan el resultado y los efectos establecidos para los datos admitidos. Si la precondición se satisface y el resultado no cumple la postcondición, la implementación no satisface la especificación.
