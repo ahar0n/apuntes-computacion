@@ -24,7 +24,7 @@ media = calcular_promedio([80, 60, 100])
 print(media) 
 ```
 
-En el [ejemplo](#code-llamada_a_calcular_promedio), el nombre `media` pertenece al contexto de la llamada a la función y `promedio` al cuerpo de la función, que ambos hayan representado el mismo valor durante una ejecución no los convierte en una misma variable.
+En el [ejemplo](#code-llamada_a_calcular_promedio), la variable `media` pertenece al contexto de la llamada a la función y `promedio` es una variable local del cuerpo de la [función](#code-calcular_promedio), que ambos hayan representado el mismo valor durante una ejecución no los convierte en una misma variable.
 
 
 ## Procedimientos y funciones
