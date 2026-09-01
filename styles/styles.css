@@ -92,12 +92,6 @@ pre code {
     font-weight: 300;
 }
 
-
-
-
-
-
-
 /* Oculta el botón de descarga del notebook fuente */
 .myst-fm-downloads-button {
     display: none !important;
@@ -130,4 +124,10 @@ pre code {
 
 .myst-outline-header button {
     font-size: initial;
+}
+
+/* Reduce la altura de la barra superior */
+.myst-top-nav {
+  min-height: 42px !important;
+  padding-block: 4px !important;
 }
