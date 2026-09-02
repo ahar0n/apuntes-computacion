@@ -34,11 +34,11 @@ La distinción entre ambas categorías se establece desde su interfaz observable
 - una función produce un valor que la llamada puede utilizar,
 - un procedimiento realiza una operación cuyo resultado principal no se entrega como valor de la llamada.
 
-Esta distinción conceptual debe adaptarse a la terminología del lenguaje. Algunos lenguajes proporcionan construcciones diferenciadas, otros representan ambos comportamientos mediante una sola construcción sintáctica. En este último caso, se denominará **función de cálculo** a la que devuelve un resultado destinado a usos posteriores y **procedimiento** a la unidad cuyo propósito principal es efectuar una acción.
+Esta distinción conceptual debe adaptarse a la terminología del lenguaje. Algunos lenguajes proporcionan construcciones diferenciadas, otros representan ambos comportamientos mediante una sola construcción sintáctica. En este último caso, se denominará **función productiva** (o función de cálculo) a la que devuelve un resultado destinado a usos posteriores y **procedimiento** a la unidad cuyo propósito principal es efectuar una acción.
 
 Python utiliza el mismo constructor `def` para ambos comportamientos. La diferencia se observa en el propósito y en el uso.
 
-:::{hint} Ejemplo de función vs. procedimiento
+:::{hint} Ejemplo de función productiva y procedimiento.
 :label: ejemplo-ch7-funcion_vs_procedimiento
 
 Considere el procesamiento que debe clasificar el promedio de las observaciones válidas y presentar un reporte. La clasificación produce un valor que podrá utilizarse posteriormente.
@@ -81,6 +81,6 @@ La función `clasificar_promedio()` asigna la categoría correspondiente a la va
 
 :::
 
-En el [ejemplo](#ejemplo-ch7-funcion_vs_procedimiento), ambas funciones contienen instrucciones, variables y decisiones. La diferencia no depende de la extensión del cuerpo ni de las estructuras de control empleadas. `clasificar_promedio()` es una función de cálculo porque retorna un valor que la llamada  puede utilizar. `mostrar_reporte()` actúa como procedimiento porque su resultado consiste en mostrar información, al terminar sin un `return` explícito, su llamada devuelve el valor `None` [@python314simple].
+En el [ejemplo](#ejemplo-ch7-funcion_vs_procedimiento), ambas funciones contienen instrucciones, variables y decisiones. La diferencia no depende de la extensión del cuerpo ni de las estructuras de control empleadas. `clasificar_promedio()` es una función productiva porque retorna un valor que la llamada  puede utilizar. `mostrar_reporte()` actúa como procedimiento porque su resultado consiste en mostrar información, al terminar sin un `return` explícito, su llamada devuelve el valor `None` [@python314simple].
 
-Una operación puede diseñarse para retornar un valor o para comunicarlo directamente mediante una salida. Retornar el resultado facilita su composición con otras funciones y su prueba independiente o mostrarlo vincula la operación con un mecanismo específico de salida. La elección depende de la responsabilidad asignada, una función de cálculo produce un valor para usos posteriores, mientras que un procedimiento realiza principalmente una acción observable.
+Una operación puede diseñarse para retornar un valor o para comunicarlo directamente mediante una salida. Retornar el resultado facilita su composición con otras funciones y su prueba independiente o mostrarlo vincula la operación con un mecanismo específico de salida. La elección depende de la responsabilidad asignada, una función productiva produce un valor para usos posteriores, mientras que un procedimiento realiza principalmente una acción observable.
