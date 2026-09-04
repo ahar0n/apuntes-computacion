@@ -8,7 +8,7 @@ bibliography:
 
 La prueba de una función examina mediante ejecuciones concretas la correspondencia entre su  especificación y comportamiento, para lo cual utiliza argumentos previamente seleccionados y compara el valor retornado con el resultado esperado. Exige establecer previamente objeto de la comprobación, la justificación de cada caso y su resultado esperado.
 
-Una **prueba aislada** ejecuta una función al margen de la coordinación del programa completo y compara su valor retornado con el resultado esperado. A diferencia de la prueba de integración, examina una unidad y no sus interacciones con otras [@iso29119_1_2022]. Los argumentos se suministran directamente, sin recurrir a las operaciones de entrada o presentación del programa.
+Una **prueba aislada** ejecuta una función al margen de la coordinación del programa completo y compara su valor retornado con el resultado esperado. Los argumentos se suministran directamente, sin recurrir a las operaciones de entrada o presentación del programa.
 
 La **especificación** delimita el dominio mediante la precondición y determina las propiedades del resultado mediante la postcondición. El **resultado esperado** se deduce de esas propiedades para unos argumentos determinados antes de ejecutar la implementación. De esta forma, distintas implementaciones pueden compartir los mismos casos mientras conserven la relación especificada entre argumentos y resultados [@iso29119_4_2021].
 
