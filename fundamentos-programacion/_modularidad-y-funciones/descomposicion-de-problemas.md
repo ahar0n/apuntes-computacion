@@ -1,23 +1,21 @@
 # Descomposición de problemas
 
-## Introducción
+## Complejidad de una solución monolítica
 
 A medida que aumenta el número de operaciones y de relaciones entre los datos, también se incrementa la dificultad para controlar la complejidad de un programa. La **modularidad** permite abordar este problema mediante la organización de la solución en unidades con responsabilidades delimitadas e interfaces explícitas. La calidad de esta descomposición no depende únicamente del número o del tamaño de las unidades, sino de los criterios empleados para distribuir las responsabilidades y determinar la información que cada una necesita conocer [@parnas1972criteria].
-
-Las funciones proporcionan el primer mecanismo de modularidad. Una **función** asigna un nombre a una operación, declara los datos que necesita y puede devolver un resultado. Esta organización permite utilizar la operación a partir de su especificación sin reproducir sus instrucciones internas en cada uso. La separación entre el comportamiento observable y su realización constituye una forma de abstracción procedimental [@abelson1996sicp].
-
-## Complejidad de una solución monolítica
 
 Una solución **monolítica** concentra en una única unidad las operaciones necesarias para resolver el problema. Esta organización no es necesariamente incorrecta en algoritmos pequeños. Sin embargo, cuando una misma secuencia realiza tareas diferentes, resulta más difícil delimitar responsabilidades, reutilizar operaciones y aislar el origen de un resultado defectuoso.
 
 :::{hint} Ejemplo de solución monolítica.
 :label: ejemplo-solucion-monolitica
 
-**Problema**
+<div id="enunciado-solucion-monolitica">
 
-Un sistema registra una serie de observaciones expresadas mediante números enteros positivos. Debido a errores del sensor durante la observación, algunas observaciones pueden registrarse con valores fuera del rango admisible. Se consideran válidos los valores comprendidos entre 0 y 100, incluidos ambos extremos. Los valores restantes deben excluirse del cálculo y contabilizarse como observaciones rechazadas.
+**Problema**. Un sistema registra una serie de observaciones expresadas mediante números enteros positivos. Debido a errores del sensor durante la observación, algunas observaciones pueden registrarse con valores fuera del rango admisible. Se consideran válidos los valores comprendidos entre 0 y 100, incluidos ambos extremos. Los valores restantes deben excluirse del cálculo y contabilizarse como observaciones rechazadas.
 
 A partir de los datos registrados, se requiere determinar la cantidad de observaciones válidas y rechazadas. Si existe al menos una observación válida, también debe calcularse su promedio.
+
+</div>
 
 La siguiente implementación constituye una posible solución monolítica:
 
@@ -58,6 +56,8 @@ Estas características no demuestran que la solución sea incorrecta. Indican qu
 
 ## Descomposición en tareas
 
+Las funciones proporcionan el primer mecanismo de modularidad. Una **función** asigna un nombre a una operación, declara los datos que necesita y puede devolver un resultado. Esta organización permite utilizar la operación a partir de su especificación sin reproducir sus instrucciones internas en cada uso. La separación entre el comportamiento observable y su realización constituye una forma de abstracción procedimental [@abelson1996sicp].
+
 La modularización no consiste en dividir el código cada cierto número de instrucciones. La descomposición debe realizarse a partir del problema y de su especificación, antes de decidir cómo se implementará cada parte.
 
 La **descomposición de un problema** consiste en separarlo en subproblemas relacionados, cada uno con un propósito y límites definidos. La solución completa se obtiene mediante la composición de los resultados o efectos producidos por esas partes. Por consiguiente, una descomposición adecuada debe satisfacer dos condiciones:
@@ -72,9 +72,9 @@ Dos indicios de una descomposición deficiente son:
 1. **Solapamiento de responsabilidades:** dos subproblemas determinan o calculan un mismo aspecto.
 2. **Dependencia innecesaria:** una parte requiere información que no interviene en el cumplimiento de su propósito.
 
-La calidad de la descomposición depende, por tanto, de las decisiones sobre las responsabilidades, la información y las relaciones asignadas a cada unidad de la solución [@parnas1972criteria].
+Por lo tanto, la calidad de la descomposición depende de las decisiones sobre las responsabilidades, la información y las relaciones asignadas a cada unidad de la solución [@parnas1972criteria].
 
-En el [ejemplo](#ejemplo-solucion-monolitica) pueden distinguirse cinco responsabilidades: leer las observaciones, determinar su validez, acumular las aceptadas, calcular el promedio y presentar los resultados. Estas responsabilidades se derivan de la especificación del problema, no de la división de una secuencia de instrucciones previamente escrita. Sus relaciones y dependencias pueden representarse mediante un diagrama de descomposición.
+Por ejemplo, en la [descripción del problema](#enunciado-solucion-monolitica) pueden distinguirse cinco responsabilidades: leer las observaciones, determinar las observaciones válidas, acumularlas, calcular su promedio y presentar los resultados. Estas responsabilidades se derivan de la especificación del problema, no de la división de una secuencia de instrucciones previamente escrita. Sus relaciones y dependencias pueden representarse mediante un [diagrama de descomposición](ver #).
 
 ## Abstracción funcional
 
@@ -82,7 +82,7 @@ La **abstracción funcional** representa una operación mediante su propósito, 
 
 La abstracción no elimina las operaciones necesarias para obtener el resultado. Estas forman parte de la **implementación**, es decir, del algoritmo y de las instrucciones que realizan la tarea. La separación entre el comportamiento esperado y su implementación permite razonar sobre una operación sin examinar simultáneamente todos sus detalles internos.
 
-En el [ejemplo](#ejemplo-solucion-monolitica), la decisión acerca de la validez de una observación puede representarse mediante la operación `es_observacion_valida`. Para utilizar esta operación basta con conocer que examina un valor entero y determina si pertenece al intervalo cerrado de `0` a `100`. La expresión concreta utilizada para efectuar esa comprobación pertenece a su implementación.
+Por ejemplo, en el [problema presentado anteriormente](#enunciado-solucion-monolitica), la validación de una observación puede representarse mediante la función `es_observacion_valida(valor)`. Para utilizarla, basta con saber que recibe un valor entero y determina si pertenece al intervalo cerrado de `0` a `100`. La expresión empleada para realizar esta comprobación forma parte de su implementación.
 
 Esta separación permite modificar la forma en que se realiza una operación sin alterar necesariamente las partes de la solución que la utilizan. Por ejemplo, el intervalo de validez podría sustituirse posteriormente por otro criterio de aceptación. Mientras se conserve el comportamiento establecido para la operación, las demás responsabilidades no necesitan reproducir ni conocer los detalles de la comprobación.
 
@@ -98,12 +98,12 @@ La **especificación de una función** describe el comportamiento que debe propo
 
 Algunas funciones producen además acciones perceptibles desde otras partes de la solución, como leer un dato o mostrar información. Estas acciones constituyen **efectos observables** y deben declararse cuando formen parte del comportamiento especificado. Una función que solo calcula y entrega un resultado no tiene los mismos efectos que una operación que muestra ese resultado, aunque ambas intervengan en una misma tarea.
 
-::::{hint} Ejemplo de especificación de una función.
+::::{hint} Ejemplo de especificación de funciones.
 :label: ejemplo-especificacion-funcion
 
-En el [ejemplo](#ejemplo-solucion-monolitica), la operación que determina la validez de una observación puede especificarse de la siguiente manera:
+En el [ejemplo](#enunciado-solucion-monolitica), la operación que determina la validez de una observación puede especificarse de la siguiente manera:
 
-:::{table} Especificación de `es_observacion_valida`.
+:::{table} Especificación de `es_observacion_valida()`.
 :label: tab-cap07-especificacion-validacion
 :align: center
 
@@ -121,7 +121,7 @@ Los valores enteros inferiores a `0` o superiores a `100` no incumplen la precon
 
 Una segunda responsabilidad consiste en calcular el promedio de las observaciones que ya han sido aceptadas:
 
-:::{table} Especificación de `calcular_promedio`
+:::{table} Especificación de `calcular_promedio()`
 :label: tab-cap07-especificacion-promedio
 :align: center
 

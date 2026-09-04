@@ -1,31 +1,5 @@
 # Ámbito local, funciones y procedimientos
 
-## Variables locales
-
-Una **variable local** se define dentro de una función y solo puede utilizarse en el ámbito establecido por el lenguaje. Los parámetros y resultados intermedios son locales a cada ejecución, lo que reduce las dependencias con otras partes del programa y permite reutilizar un mismo nombre en funciones diferentes.
-
-En [`calcular_promedio`](#code-calcular_promedio), el parámetro `observaciones_validas` y las variables `suma`, `cantidad`, `valor` y `promedio` son locales. La llamada puede utilizar el valor retornado, pero no acceder a esos nombres internos.
-
-
-## Ámbito
-
-El **ámbito** de un nombre es la región del programa en la que puede utilizarse para referirse a una entidad determinada. En un ámbito léxico, esa región se establece a partir de la estructura del código y del bloque en el que se define el nombre.
-
-Python utiliza reglas de ámbito léxico para distinguir nombres locales, no locales, globales e incorporados [@python314execution]. El análisis inicial se concentra en parámetros y variables locales, con el propósito de reconocer qué nombres son accesibles dentro y fuera de una función.
-
-```{code-block}python
-:label: code-llamada_a_calcular_promedio
-:linenos: true
-:lineno-start: 1
-:emphasize-lines:
-:caption:
-
-media = calcular_promedio([80, 60, 100])
-print(media) 
-```
-
-En el [ejemplo](#code-llamada_a_calcular_promedio), la variable `media` pertenece al contexto de la llamada a la función y `promedio` es una variable local del cuerpo de la [función](#code-calcular_promedio), que ambos hayan representado el mismo valor durante una ejecución no los convierte en una misma variable.
-
 
 ## Procedimientos y funciones
 
