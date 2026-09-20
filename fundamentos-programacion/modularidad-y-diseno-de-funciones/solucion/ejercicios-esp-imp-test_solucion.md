@@ -128,18 +128,19 @@ calcular_cambio(valor_final=40, valor_inicial=25)
 calcular_cambio(25, valor_final=40)
 :::
 
-Antes de ejecutar el código, determine el resultado de cada llamada y registre la asociación entre argumentos y parámetros. Luego, ejecute las llamadas y compare los resultados obtenidos con los esperados.
+Antes de ejecutar el código, determine el resultado de cada llamada y registre 
+la asociación entre argumentos y parámetros. Luego, ejecute las llamadas y 
+compare los resultados obtenidos con los esperados.
 
 :::{solution} Solución
 :class: dropdown
-:open: 
 
-| Llamada | Asociación | Resultado esperado |
-|---|---|---:|
-| `calcular_cambio(25, 40)` | `valor_inicial=25`, `valor_final=40` | `15` |
-| `calcular_cambio(40, 25)` | `valor_inicial=40`, `valor_final=25` | `-15` |
-| `calcular_cambio(valor_final=40, valor_inicial=25)` | Asociación determinada por los nombres | `15` |
-| `calcular_cambio(25, valor_final=40)` | Posicional para `valor_inicial`; palabra clave para `valor_final` | `15` |
+| Llamada                                             | Asociación                                                        | Resultado esperado |
+|:----------------------------------------------------|:------------------------------------------------------------------|:------------------:|
+| `calcular_cambio(25, 40)`                           | `valor_inicial=25`, `valor_final=40`                              |        `15`        |
+| `calcular_cambio(40, 25)`                           | `valor_inicial=40`, `valor_final=25`                              |       `-15`        |
+| `calcular_cambio(valor_final=40, valor_inicial=25)` | Asociación determinada por los nombres                            |        `15`        |
+| `calcular_cambio(25, valor_final=40)`               | Posicional para `valor_inicial`; palabra clave para `valor_final` |        `15`        |
 :::
 
 
@@ -217,21 +218,21 @@ def calcular_promedio_defectuoso(valores):
 Antes de ejecutar la función, determine los resultados esperados para `[80]`, `[0, 100]` y `[20, 40, 60]`. Luego, ejecute los casos, identifique la instrucción que origina las diferencias y corrija la implementación sin cambiar su especificación.
 
 
-:::{solution} Solución
-:class: dropdown
-:open:
+::::{dropdown} Solución
 
-Los resultados esperados, obtenidos de la especificación, son:
+Los resultados esperados y obtenidos, son:
 
-| Argumento | Resultado esperado | Resultado defectuoso aproximado |
-|---|---:|---:|
-| `[80]` | `80.0` | `40.0` |
-| `[0, 100]` | `50.0` | `33.33` |
-| `[20, 40, 60]` | `40.0` | `30.0` |
+|    Argumento    | Resultado esperado | Resultado defectuoso aproximado |
+|:---------------:|:------------------:|:-------------------------------:|
+|     `[80]`      |       `80.0`       |             `40.0`              |
+|   `[0, 100]`    |       `50.0`       |             `33.33`             |
+| `[20, 40, 60]`  |       `40.0`       |             `30.0`              |
 
-El defecto se origina en `cantidad = 1`. Como el recorrido aumenta la cantidad una vez por cada elemento, el contador debe comenzar en cero:
+Si `cantidad` tiene el rol de contador de valores de la lista, esta debe 
+inicializarse en `0`, ya que el recorrido se inicia junto con el iterador.
+El defecto se origina en la inicialización `cantidad = 1` (línea 3).
 
-```python
+:::{code-block} python
 def calcular_promedio(valores):
     """Devuelve el promedio de una lista no vacía."""
     suma = 0
@@ -242,34 +243,47 @@ def calcular_promedio(valores):
         cantidad += 1
 
     return suma / cantidad
-```
 :::
+::::
 
 
 
 **DF-008.** Considere la función:
 
-```python
+:::{code-block} python
 def reemplazar_negativos(valores):
     for posicion in range(len(valores)):
         if valores[posicion] < 0:
             valores[posicion] = 0
-```
+:::
 
 Especifique la función, incluyendo el efecto observable sobre la lista y el valor retornado por Python al terminar sin un `return` explícito. Diseñe pruebas aisladas para una lista sin negativos, una con algunos negativos, una formada solo por negativos y una lista vacía. En cada caso registre el estado esperado de la lista después de la llamada.
 
-:::{solution} Solución
-:class: dropdown
-:open:
+:::{dropdown} Solución
 
-La precondición establece que `valores` es una lista de números. Al terminar, cada elemento originalmente negativo ha sido sustituido por `0` y los demás conservan su valor. La función modifica la lista recibida y, al no ejecutar un `return` explícito, retorna `None`.
+- La precondición establece que `valores` es una lista de números (comparables con `0`). 
+- Al terminar, cada elemento originalmente negativo ha sido sustituido por `0` y los demás conservan su valor. 
+- La función modifica la lista recibida y, al no ejecutar un `return`, retorna `None`.
 
-| Lista antes de la llamada | Lista esperada después de la llamada | Retorno esperado |
-|---|---|:---:|
-| `[2, 5, 8]` | `[2, 5, 8]` | `None` |
-| `[-2, 5, -8]` | `[0, 5, 0]` | `None` |
-| `[-3, -1]` | `[0, 0]` | `None` |
-| `[]` | `[]` | `None` |
+Especificación:
+
+| Elemento            | Descripción                                                                                                                                                                                          |
+|:--------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Propósito           | Reemplazar por `0` todos los valores negativos contenidos en una lista.                                                                                                                              |
+| Datos requeridos    | Una lista de valores numéricos.                                                                                                                                                                      |
+| Precondición        | `valores` es una lista cuyos elementos son números comparables con cero.                                                                                                                             |
+| Resultado           | Ninguno (`None`).                                                                                                                                                                                    |
+| Poscondición        | Para cada posición de la lista, si el valor original era negativo, el valor final es `0`. Si el valor original era mayor o igual que cero, permanece sin cambios. La longitud de la lista no cambia. |
+| Efectos observables | La lista recibida mediante `valores` es modificada directamente.                                                                                                                                     |
+
+Casos de prueba:
+
+| Lista antes de la llamada  | Lista esperada después de la llamada  | Retorno esperado  |
+|:--------------------------:|:-------------------------------------:|:-----------------:|
+|        `[2, 5, 8]`         |              `[2, 5, 8]`              |      `None`       |
+|       `[-2, 5, -8]`        |              `[0, 5, 0]`              |      `None`       |
+|         `[-3, -1]`         |               `[0, 0]`                |      `None`       |
+|            `[]`            |                 `[]`                  |      `None`       |
 
 :::
 
