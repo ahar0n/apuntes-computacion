@@ -87,7 +87,7 @@ def contar_observaciones_validas(observaciones):
 
 
 **DF-003.** Especifique e implemente la función 
-`limitar_al_intervalo(valor, limite_inferior, limite_superior)` a partir de la 
+`limitar_al_intervalo(valor, limite_inferior, limite_superior)` a partir de los 
 siguientes antecedentes:
 
 - los tres argumentos son enteros y `limite_inferior <= limite_superior`,
@@ -197,7 +197,7 @@ Después de `resultado = obtener_doble(7)`, `resultado` contiene `14` y la funci
 
 
 **DF-006.** Diseñe un conjunto de pruebas aisladas para `esta_en_rango(valor)`, 
-especificada en la actividad DF-01. Para cada caso registre argumento, criterio 
+especificada en la actividad DF-01. Para cada caso, registre argumento, criterio 
 de selección y resultado esperado. El conjunto debe incluir un valor interior, 
 ambos límites y los enteros inmediatamente exteriores al intervalo.
 
