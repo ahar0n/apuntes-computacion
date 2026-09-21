@@ -13,7 +13,7 @@ determina cuándo llamarla, qué argumentos suministrarle y cómo utilizar su re
 o efecto. En el [ejemplo](#cap07-fig-descomposicion-observaciones), la unidad 
 «Procesar observaciones» desempeña la función coordinadora. Conoce la secuencia
 general de trabajo, pero delega la lectura y la validación de observaciones, el 
-calculo del promedio y la presentación de los resultados.
+cálculo del promedio y la presentación de los resultados.
 
 La composición debe satisfacer obligaciones que no pertenecen por completo 
 a ninguna función elemental. Por ejemplo, para el problema en cuestión y, de 
@@ -30,7 +30,7 @@ de la unidad «Determinar validez» no puede comprobar, por ejemplo, que la
 coordinación utilice su retorno en la rama correcta.
 
 :::{table} Correspondencia entre funciones y responsabilidades
-:label: cap07-rev-20260921-tab-funciones-responsabilidades
+:label: cap07-tab-funciones-responsabilidades
 :align: center
 
 | Función                  | Responsabilidad                         | Resultado o efecto principal                         |
@@ -48,16 +48,21 @@ estados y decisiones principales. Por ejemplo,
 
 (ch7-ejemplo-composicion-lenguaje-natural)=
 1. Crear una lista vacía para las observaciones válidas e inicializar en cero la cantidad de rechazos.
-2. Repetir la lectura tantas veces como indica `cantidad`.
+2. Repetir la lectura para cada observación.
 3. Validar cada observación leída.
-4. Si es válida, incorporarla a la lista, en caso contrario, incrementar los rechazos.
+4. Si es válida, incorporar el valor leído a la lista de válidas, en caso contrario, incrementar los rechazos.
 5. Obtener la cantidad de observaciones válidas a partir de la longitud de la lista.
-6. Si esa cantidad es mayor que cero, calcular el promedio, en caso contrario, representar su ausencia mediante `None`.
-7. Mostrar las cantidades y el promedio disponible.
+6. Si la cantidad es mayor que cero, calcular el promedio, en caso contrario, representar su ausencia mediante `None`.
+7. Mostrar las cantidades y el promedio.
 
-La lista y el contador resumen el procesamiento efectuado hasta cada punto del recorrido. Después de procesar una observación, la lista contiene los valores válidos encontrados hasta ese momento y `rechazadas` contiene la cantidad de valores rechazados en el mismo prefijo de la entrada. Esta relación permite razonar sobre la coherencia de la coordinación sin atribuir a la función de validación la responsabilidad de almacenar o contar resultados.
+La lista y el contador de rechazos resumen el procesamiento efectuado hasta 
+cada punto del recorrido. Después de procesar una observación, la lista contiene 
+los valores válidos hasta ese momento y el contador de rechazos contiene la 
+cantidad de valores rechazados. Esta relación permite evaluar sobre la coherencia 
+de la coordinación sin atribuir a la función de validación la responsabilidad 
+de almacenar o contar resultados.
 
-La siguiente figura representa el control interno del algoritmo.
+El siguiente diagrama de flujo representa el control interno del algoritmo.
 
 :::{figure}
 :label: cap07-fig-flujo-composicion
@@ -97,8 +102,8 @@ una llamada, usar incorrectamente un retorno o invocar una función cuando su
 precondición no se satisface.
 
 La selección de casos de integración se guía por **interacciones**, no por 
-funciones consideradas separadamente. Por ejemplo, para el [programa](cap07-code-solucion-modular) 
-interesa examinar al menos tres situaciones:
+funciones consideradas separadamente. Por ejemplo, en [la implementación](cap07-code-solucion-modular) 
+se debe examinar al menos tres situaciones:
 
 :::{table} Ejemplo de pruebas de integración
 :label: tab-cap07-pruebas-integracion

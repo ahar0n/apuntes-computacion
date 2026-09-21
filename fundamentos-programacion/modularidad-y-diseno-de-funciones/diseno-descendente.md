@@ -48,7 +48,7 @@ En el [problema](#ch7-problema-conductor), el refinamiento adoptado distingue la
 responsabilidades](#ch7-ex-descomposicion) establecidas durante la descomposición:
 
 :::{table} Ejemplo de niveles de refinamiento de una solución modular
-:label: cap07-rev-20260921-tab-niveles-refinamiento
+:label: cap07-tab-niveles-refinamiento
 :align: center
 
 | Nivel                                          | Formulación                                                                     |

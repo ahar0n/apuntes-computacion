@@ -1,10 +1,11 @@
 def es_observacion_valida(valor):
     """Indica si valor pertenece al intervalo cerrado [0, 100]."""
-    return 0 <= valor <= 100
+    observacion_valida = 0 <= valor <= 100
+    return observacion_valida
 
 
 def calcular_promedio(observaciones_validas):
-    """Devuelve el promedio de una lista no vacía de observaciones válidas."""
+    """Devuelve el promedio de una lista no vacía de observaciones."""
     suma = 0
     cantidad = 0
 
@@ -12,12 +13,14 @@ def calcular_promedio(observaciones_validas):
         suma += valor
         cantidad += 1
 
-    return suma / cantidad
+    promedio = suma / cantidad
+    return promedio
 
 
 def leer_observacion(posicion):
     """Lee y devuelve la observación situada en posicion."""
-    return int(input(f"Observación {posicion}: "))
+    observacion = int(input(f"Observación {posicion}: "))
+    return observacion
 
 
 def mostrar_resumen(validas, rechazadas, promedio):
