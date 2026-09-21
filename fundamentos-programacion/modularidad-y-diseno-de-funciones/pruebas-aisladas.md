@@ -62,7 +62,14 @@ Para la función `calcular_promedio()` puede diseñarse el siguiente conjunto:
 | `[20,40,60]` | Colección representativa              |  `40.0`  |  `40.0`  |  Coincide   |
 :::
 
-La lista vacía incumple la [precondición](#cap07-tab-especificacion-promedio) de `calcular_promedio()`. Si la especificación no declara un retorno, una excepción ni otro comportamiento para ella, no puede asignársele un resultado esperado. Su consideración permite revisar la obligación de la operación llamadora: evitar esa llamada. Un dato externo al dominio solo constituye un caso ejecutable cuando la especificación determina su tratamiento.
+La lista vacía incumple la [precondición](#cap07-tab-especificacion-promedio) de `calcular_promedio()`. Si la 
+especificación no declara un retorno, una excepción ni otro comportamiento para 
+ella, no puede asignársele un resultado esperado. Su consideración permite 
+revisar la obligación de la operación llamadora: evitar esa llamada. Un dato 
+externo al dominio solo constituye un caso ejecutable cuando la especificación 
+determina su tratamiento.
 
-Que los resultados coincidan en estos casos aporta evidencia sobre las entradas seleccionadas, pero no demuestra por sí solo que las funciones sean correctas para todos los argumentos de sus dominios [@bijlsma2021students; @scatalon2019testing].
+Que los resultados coincidan en estos casos aporta evidencia sobre las entradas 
+seleccionadas, pero no demuestra que las funciones sean correctas para todos los 
+argumentos de sus dominios [@bijlsma2021students; @scatalon2019testing].
 

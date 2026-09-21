@@ -50,9 +50,10 @@ project:
             - file: fundamentos-programacion/modularidad-y-diseno-de-funciones/descomposicion-y-abstraccion.md
             - file: fundamentos-programacion/modularidad-y-diseno-de-funciones/funciones-en-python.md
             - file: fundamentos-programacion/modularidad-y-diseno-de-funciones/ambito-y-procedimientos.md
-            - file: fundamentos-programacion/modularidad-y-diseno-de-funciones/diseno-descendente.md
             - file: fundamentos-programacion/modularidad-y-diseno-de-funciones/pruebas-aisladas.md
             - file: fundamentos-programacion/modularidad-y-diseno-de-funciones/ejercicios-esp-imp-test.md
+            - file: fundamentos-programacion/modularidad-y-diseno-de-funciones/diseno-descendente.md
+            - file: fundamentos-programacion/modularidad-y-diseno-de-funciones/composicion-e-integracion.md
 
         - title: "Persistencia"
           children:
