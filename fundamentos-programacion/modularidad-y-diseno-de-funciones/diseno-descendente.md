@@ -16,6 +16,7 @@ El diseño descendente forma parte de una secuencia más amplia que comprende
 diseño, implementación y comprobación. Para conservar una visión conjunta del 
 proceso, se adopta la siguiente secuencia:
 
+(ch7-estrategia-diseno-descendente)=
 1. Establecer la relación entre las entradas y los resultados del problema.
 2. Identificar responsabilidades distinguibles.
 3. Especificar las funciones correspondientes.
@@ -36,16 +37,6 @@ de dependencias muestra la descomposición y las relaciones entre unidades,
 mientras que, el diagrama de flujo representa la secuencia y las decisiones 
 del control interno de un algoritmo.)
 
-En el [problema](#ch7-problema-conductor), el refinamiento adoptado distingue las mismas cinco 
-responsabilidades establecidas durante la descomposición:
-
-(ch7-responsabilidades)=
-- Coordinar el procesamiento
-- Leer cada observación
-- Determinar si la observación es válida
-- Calcular el promedio cuando esté definido
-- Mostrar el resumen
-
 **Refinar una solución** significa sustituir una formulación global por otra más 
 detallada que conserve su propósito. El nivel superior expresa el resultado 
 que debe producirse, los niveles siguientes precisan las responsabilidades que 
@@ -53,6 +44,8 @@ colaboran y las relaciones que deben cumplirse. El proceso se detiene cuando
 cada responsabilidad puede implementarse mediante las construcciones conocidas, 
 sin necesidad de anticipar instrucciones de otras unidades [@wirth1971refinement].
 
+En el [problema](#ch7-problema-conductor), el refinamiento adoptado distingue las mismas [cinco 
+responsabilidades](#ch7-ex-descomposicion) establecidas durante la descomposición:
 
 :::{table} Ejemplo de niveles de refinamiento de una solución modular
 :label: cap07-rev-20260921-tab-niveles-refinamiento

@@ -38,14 +38,15 @@ coordinación utilice su retorno en la rama correcta.
 | `leer_observacion`       | obtener una observación                 | retorna un entero y realiza una operación de entrada |
 | `es_observacion_valida`  | determinar la validez                   | retorna un valor booleano                            |
 | `calcular_promedio`      | calcular el promedio                    | retorna un número                                    |
-| `procesar_observaciones` | coordinar lectura, validación y cálculo | construye los datos requeridos por el resumen        |
 | `mostrar_resumen`        | comunicar los resultados                | realiza operaciones de salida                        |
+| `procesar_observaciones` | coordinar lectura, validación y cálculo | construye los datos requeridos por el resumen        |
 
 :::
 
 Antes de su implementación, la coordinación puede describirse mediante sus 
 estados y decisiones principales. Por ejemplo,
 
+(ch7-ejemplo-composicion-lenguaje-natural)=
 1. Crear una lista vacía para las observaciones válidas e inicializar en cero la cantidad de rechazos.
 2. Repetir la lectura tantas veces como indica `cantidad`.
 3. Validar cada observación leída.
@@ -59,7 +60,7 @@ La lista y el contador resumen el procesamiento efectuado hasta cada punto del r
 La siguiente figura representa el control interno del algoritmo.
 
 :::{figure}
-:label: cap07-rev-20260921-fig-flujo-composicion
+:label: cap07-fig-flujo-composicion
 :alt: Diagrama de flujo que inicializa la lista y el contador, lee y valida cada observación, agrega o rechaza el valor, calcula el promedio solo si existen valores válidos y muestra el resumen.
 
 <div style="text-align: center;">
@@ -70,72 +71,17 @@ La siguiente figura representa el control interno del algoritmo.
 
 :::
 
-Una implementación en Python coherente con el algoritmo se presenta a continuación:
+[//]: # (Una implementación en Python coherente con el algoritmo se presenta a continuación:)
 
-:::{code-block} python
-:label: cap07-code-solucion-modular
-:linenos:
+[//]: # ()
+[//]: # (:::{code-block} python)
 
-def es_observacion_valida(valor):
-    """Indica si valor pertenece al intervalo cerrado [0, 100]."""
-    return 0 <= valor <= 100
+[//]: # (:label: cap07-code-solucion-modular)
 
+[//]: # (:linenos:)
 
-def calcular_promedio(observaciones_validas):
-    """Devuelve el promedio de una lista no vacía de observaciones válidas."""
-    suma = 0
-    cantidad = 0
-
-    for valor in observaciones_validas:
-        suma += valor
-        cantidad += 1
-
-    return suma / cantidad
-
-
-def leer_observacion(posicion):
-    """Lee y devuelve la observación situada en posicion."""
-    return int(input(f"Observación {posicion}: "))
-
-
-def mostrar_resumen(validas, rechazadas, promedio):
-    """Muestra las cantidades y el promedio, cuando está definido."""
-    print("Observaciones válidas:", validas)
-    print("Observaciones rechazadas:", rechazadas)
-
-    if promedio is None:
-        print("Promedio no calculado: sin observaciones válidas")
-    else:
-        print("Promedio:", promedio)
-
-
-def procesar_observaciones(cantidad):
-    """Lee, clasifica y resume una cantidad positiva de observaciones."""
-    observaciones_validas = []
-    rechazadas = 0
-
-    for posicion in range(1, cantidad + 1):
-        valor = leer_observacion(posicion)
-
-        if es_observacion_valida(valor):
-            observaciones_validas.append(valor)
-        else:
-            rechazadas += 1
-
-    validas = len(observaciones_validas)
-
-    if validas > 0:
-        promedio = calcular_promedio(observaciones_validas)
-    else:
-        promedio = None
-
-    mostrar_resumen(validas, rechazadas, promedio)
-
-
-cantidad = int(input("Cantidad de observaciones: "))
-procesar_observaciones(cantidad)
-
-:::
+[//]: # ()
+[//]: # (:::)
 
 
 ## Pruebas de integración
