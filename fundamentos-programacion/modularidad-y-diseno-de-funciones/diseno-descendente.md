@@ -1,23 +1,23 @@
 ---
-title: "Diseño descendente"
+title: "Diseño descendente de la solución modular"
 bibliography:
   - ../referencias_capitulo_07.bib
 ---
 
 ## Desarrollo de una solución modular
 
-El **diseño descendente** parte de la especificación del problema y refina 
-progresivamente la solución en tareas más precisas. Cada refinamiento incorpora 
-una decisión sobre las responsabilidades, los datos y las relaciones entre las 
-partes. La implementación de las funciones y sus pruebas son actividades que no 
-constituyen, por sí mismas, pasos del refinamiento [@wirth1971refinement].
+El **diseño descendente** refina progresivamente la especificación global en 
+responsabilidades, interfaces y relaciones entre unidades. Cada refinamiento 
+añade detalle y debe conservar el propósito del nivel anterior. La 
+implementación de las funciones y sus pruebas son actividades que no 
+constituyen, por sí mismas, pasos del refinamiento [@wirth1971refinement; @felleisen2018design].
 
 El diseño descendente forma parte de una secuencia más amplia que comprende 
 diseño, implementación y comprobación. Para conservar una visión conjunta del 
 proceso, se adopta la siguiente secuencia:
 
 (ch7-estrategia-diseno-descendente)=
-1. Establecer la relación entre las entradas y los resultados del problema.
+1. Establecer la relación entre las entradas y los resultados del problema global.
 2. Identificar responsabilidades distinguibles.
 3. Especificar las funciones correspondientes.
 4. Representar sus dependencias y el flujo previsto de los datos.
@@ -30,19 +30,13 @@ quinto vincula las especificaciones individuales con sus implementaciones.
 Los dos últimos construyen y comprueban las conexiones. Esta separación permite 
 probar las funciones elementales antes de incorporarlas a la solución completa.
 
+## Refinamiento de la solución
 
-[//]: # (Un **diagrama de dependencias** representa jerárquicamente las llamadas 
-o dependencias entre módulos. A diferencia de un diagrama de flujo, el diagrama 
-de dependencias muestra la descomposición y las relaciones entre unidades, 
-mientras que, el diagrama de flujo representa la secuencia y las decisiones 
-del control interno de un algoritmo.)
-
-**Refinar una solución** significa sustituir una formulación global por otra más 
+**Refinar una solución** consiste en sustituir una formulación global por otra más 
 detallada que conserve su propósito. El nivel superior expresa el resultado 
 que debe producirse, los niveles siguientes precisan las responsabilidades que 
 colaboran y las relaciones que deben cumplirse. El proceso se detiene cuando 
-cada responsabilidad puede implementarse mediante las construcciones conocidas, 
-sin necesidad de anticipar instrucciones de otras unidades [@wirth1971refinement].
+cada responsabilidad puede implementarse mediante las construcciones conocidas [@wirth1971refinement].
 
 En el [problema](#ch7-problema-conductor), el refinamiento adoptado distingue las mismas [cinco 
 responsabilidades](#ch7-ex-descomposicion) establecidas durante la descomposición:
@@ -65,9 +59,9 @@ En el refinamiento cada decisión debe justificarse mediante la especificación
 del nivel anterior. Por ejemplo, en el [problema](#ch7-problema-conductor), la existencia de 
 observaciones rechazadas justifica una operación de validación, la necesidad de 
 informar un promedio justifica una función de cálculo, la entrada repetida 
-justifica una coordinación que controle el recorrido. Por otra parte, una función 
-adicional que no produzca ningún dato ni efecto requerido carecería de una 
-responsabilidad derivada del problema.
+justifica una coordinación que controle el recorrido por cada entrada. Por otra 
+parte, una función adicional que no produzca ningún dato ni efecto requerido 
+carecería de una responsabilidad derivada del problema.
 
 ## Especificaciones locales
 
@@ -76,17 +70,13 @@ diseñar las funciones se distribuyen esas propiedades entre unidades, sin
 perder ninguna de ellas.
 
 Por ejemplo, 
-- _«Cada observación se clasifica como válida o rechazada»_ origina una llamada 
-a una unidad que valide las observaciones.
-- _«Solo las observaciones válidas intervienen en el promedio»_ obliga a crear 
-una lista separada antes de llamar a la función que calcule el promedio.
-- _«El promedio se informa únicamente cuando existe al menos una observación válida»_ 
-obliga a comprobar que la lista no esté vacía.
-- _«Se informan las cantidades de observaciones válidas y rechazadas»_ exige que 
-la coordinación produzca ambas cantidades y que la presentación las reciba.
+- La necesidad de identificar que una observación pertenece a un intervalo específico, origina una llamada a una unidad que valide las observaciones.
+- Que solo las observaciones válidas son consideradas para el cálculo del promedio, requiere la creación de una lista separada antes de llamar a la función que calcula el promedio.
+- Para poder mostrar el promedio únicamente cuando exista al menos una observación válida, requiere a comprobar que la lista de observaciones válidas no esté vacía.
+- Para mostrar las cantidades de observaciones válidas y rechazadas, se requiere que la coordinación produzca ambas cantidades y que la unidad de presentación las reciba.
 
 Esta distribución permite distinguir dos clases de obligaciones: local y de 
-composición. Una obligación local puede satisfacerse dentro de una función, por 
+composición (global). Una obligación local puede satisfacerse dentro de una función, por 
 ejemplo, la función que calcula el promedio debe devolver la suma de los elementos 
 dividida por su cantidad. Una obligación de composición depende de las conexiones, 
 por ejemplo, la coordinación del procesamiento de observaciones debe evitar calcular 
@@ -101,16 +91,15 @@ del [problema](#ch7-problema-conductor):
 :label: cap07-tab-interfaces-problema
 :align: center
 
-| Unidad                 | Datos requeridos                   | Resultado o efecto                                   | Restricción                                                       |
-|:-----------------------|:-----------------------------------|:-----------------------------------------------------|:------------------------------------------------------------------|
-| Leer observación       | posición dentro del recorrido      | captura una entrada y retorna una observación entera | la entrada debe poder interpretarse como entero                   |
-| Determinar validez     | observación entera                 | retorna `True` o `False`                             | admite enteros dentro y fuera del intervalo válido                |
-| Calcular promedio      | lista de observaciones válidas     | retorna el promedio                                  | la lista no puede estar vacía                                     |
-| Mostrar resumen        | cantidades y promedio o ausencia   | realiza salida                                       | no vuelve a validar ni calcular                                   |
-| Procesar observaciones | cantidad positiva de observaciones | coordina las demás unidades                          | debe producir datos coherentes con todas las observaciones leídas |
+| Unidad                 | Datos requeridos               | Resultado o efecto                                | Restricción                                                                    |
+|:-----------------------|:-------------------------------|:--------------------------------------------------|:-------------------------------------------------------------------------------|
+| Leer observación       | Posición                       | Lee y retorna un entero                           | La entrada debe poder convertirse a entero.                                    |
+| Determinar validez     | Entero                         | Retorna booleano                                  | Admite enteros dentro y fuera del intervalo válido.                            |
+| Calcular promedio      | Lista de enteros válidados     | Retorna el promedio                               | La lista no puede estar vacía.                                                 |
+| Mostrar resumen        | Cantidades y promedio o `None` | Muestra el resumen                                | No vuelve a validar ni calcular. Por lo tanto, los datos deben ser coherentes. |
+| Procesar observaciones | Cantidad positiva              | Coordina lectura, clasificación, cálculo y salida | Debe producir datos coherentes con todas las observaciones leídas.             |
 
 :::
-
 
 ## Dependencias entre funciones
 
@@ -128,31 +117,10 @@ y representar,
 - dependencia de una unidad respecto de otras,
 - dato que se transmite mediante la relación.
 
-Se propone una notación con los siguientes elementos:
-
-:::{table} Notación diagrama de dependencias
-:label: cap07-notacion-diagrama-de-dependencias
-:align: center
-
-| Elemento               | Significado                                                                   |
-|:-----------------------|:------------------------------------------------------------------------------|
-| Nodo                   | Responsabilidad que se implementará mediante una función o un procedimiento.  |
-| Flecha                 | Dependencia entre unidades mediante una llamada.                              |
-| Rótulo de la flecha    | Dato que la operación llamadora proporciona o que interviene en la relación.  |
-| Nodo de origen         | Unidad coordinadora desde la cual se inicia la lectura jerárquica del diseño. |
-
-:::
-
-La flecha expresa una relación de uso, no describe necesariamente todos los 
-argumentos ni el valor retornado. Estos elementos forman parte de la interfaz y 
-la especificación de cada función. El rótulo destaca solo la información 
-necesaria para interpretar la dependencia en el nivel de diseño mostrado.
-
-El siguiente diagrama de dependencias conserva la especificación del problema 
-completo.
+El siguiente diagrama de dependencias conserva la especificación del problema.
 
 :::{figure}
-:label: cap07-fig-descomposicion-observaciones
+:label: cap07-fig-dependencias-problema
 :alt: Jerarquía de responsabilidades para coordinar, leer, validar, calcular el promedio y mostrar el resumen de observaciones.
 
 ```mermaid
@@ -173,6 +141,28 @@ flowchart TD
 Diagrama de dependencias para el procesamiento modular del [ejemplo](#ch7-problema-conductor). 
 Representa las [dependencias](#cap07-tab-interfaces-problema) entre las unidades.
 :::
+
+::::{dropdown} Notación del diagrama de dependencias
+
+:::{table} Notación diagrama de dependencias
+:label: cap07-notacion-diagrama-de-dependencias
+:align: center
+
+| Elemento               | Descripción                                                                   |
+|:-----------------------|:------------------------------------------------------------------------------|
+| Nodo                   | Responsabilidad que se implementará mediante una función o un procedimiento.  |
+| Flecha                 | Dependencia entre unidades mediante una llamada.                              |
+| Rótulo de la flecha    | Dato que la operación llamadora proporciona o que interviene en la relación.  |
+| Nodo de origen         | Unidad coordinadora desde la cual se inicia la lectura jerárquica del diseño. |
+
+:::
+
+La flecha expresa una relación de uso, no describe necesariamente todos los 
+argumentos ni el valor retornado. Estos elementos forman parte de la interfaz y 
+la especificación de cada función. El rótulo destaca solo la información 
+necesaria para interpretar la dependencia en el nivel de diseño mostrado.
+
+::::
 
 El componente encargado de coordinador el procesamiento (unidad coordinadora), 
 proporciona la posición a la lectura de observaciones y recibe una observación. 

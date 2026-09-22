@@ -6,31 +6,46 @@ bibliography:
 
 ## Diseño y ejecución de una prueba
 
-La prueba de una función examina mediante ejecuciones concretas la correspondencia entre su  especificación y comportamiento, para lo cual utiliza argumentos previamente seleccionados y compara el valor retornado con el resultado esperado. Exige establecer previamente objeto de la comprobación, la justificación de cada caso y su resultado esperado.
+La prueba de una función examina mediante ejecuciones concretas la 
+correspondencia entre su especificación y comportamiento, para lo cual utiliza 
+argumentos previamente seleccionados y compara el valor retornado con el 
+resultado esperado. Exige establecer previamente objeto de la comprobación, la 
+justificación de cada caso y su resultado esperado.
 
-Una **prueba aislada** ejecuta una función al margen de la coordinación del programa completo y compara su valor retornado con el resultado esperado. Los argumentos se suministran directamente, sin recurrir a las operaciones de entrada o presentación del programa.
+Una **prueba aislada** ejecuta una función al margen de la coordinación del 
+programa completo y compara su valor retornado con el resultado esperado. 
+Los argumentos se suministran directamente, sin recurrir a las operaciones de 
+entrada o presentación del programa. De forma introductoria se emplea el 
+término **prueba unitaria** como la examinación del comportamiento propio de una 
+función antes de comprobar sus interacciones con otras unidades [@iso29119_1_2022; @guttag2021introduction].
 
-La **especificación** delimita el dominio mediante la precondición y determina las propiedades del resultado mediante la postcondición. El **resultado esperado** se deduce de esas propiedades para unos argumentos determinados antes de ejecutar la implementación. De esta forma, distintas implementaciones pueden compartir los mismos casos mientras conserven la relación especificada entre argumentos y resultados [@iso29119_4_2021].
-
-Un **caso de prueba** reúne tres elementos de diseño:
-
-- Argumentos determinados
-- Criterio que justifica su selección
-- Resultado esperado
-
-Después de ejecutar la función se registran el resultado obtenido y la conclusión. La conclusión indica si el resultado obtenido coincide con el esperado. Esta separación impide adaptar retrospectivamente la expectativa a la respuesta producida por el programa.
+La especificación delimita el dominio mediante la precondición y determina las
+propiedades del resultado mediante la postcondición. El **resultado esperado** 
+se deduce de esas propiedades para unos argumentos determinados antes de 
+ejecutar la implementación. De esta forma, distintas implementaciones pueden 
+compartir los mismos casos mientras conserven la relación especificada entre 
+argumentos y resultados [@iso29119_4_2021].
 
 ## Selección de casos
 
-Un **conjunto de pruebas** combina casos con criterios complementarios. Su calidad depende de los comportamientos examinados, no solo de la cantidad de ejecuciones. Puede aplicarse el siguiente procedimiento, adaptado a partir de técnicas basadas en la especificación [@iso29119_4_2021]:
+Un registro básico de prueba distingue los argumentos, el criterio de 
+selección, el resultado esperado, el obtenido y la conclusión. Esta separación
+evita convertir la salida de la implementación en la definición retrospectiva 
+de lo correcto [@guttag2021introduction].
 
-1. Examinar la precondición y delimitar el dominio.
-2. Identificar los comportamientos diferentes establecidos por la postcondición.
-3. Seleccionar representantes y límites relevantes.
-4. Determinar los resultados esperados sin ejecutar la implementación.
-5. Revisar el conjunto y eliminar repeticiones que no aporten un criterio nuevo.
+Para seleccionar casos se adopta el siguiente procedimiento, adaptado para las 
+funciones pequeñas del capítulo a partir de técnicas basadas en la especificación [@iso29119_4_2021]:
 
-Se denomina **caso representativo** a una entrada admitida elegida para examinar un comportamiento ordinario y **caso límite** a una entrada admitida situada en un extremo establecido por las restricciones. Esta terminología no constituye una taxonomía exhaustiva ni excluyente.
+1. Delimitar el dominio a partir de la precondición.
+2. Identificar resultados o comportamientos distintos establecidos por la postcondición.
+3. Elegir casos representativos y casos límites.
+4. Calcular el resultado esperado sin ejecutar la implementación.
+5. Registrar y comparar el resultado obtenido al ejecutar la función.
+
+Se denomina **caso representativo** a una entrada admitida elegida para 
+examinar un comportamiento ordinario y **caso límite** a una entrada admitida 
+situada en un extremo establecido por las restricciones. Esta terminología no 
+constituye una taxonomía exhaustiva ni excluyente.
 
 La [](#cap07-tab-pruebas-validacion) presenta el diseño y el registro de pruebas para la función `es_observacion_valida()`.
 
@@ -47,7 +62,9 @@ La [](#cap07-tab-pruebas-validacion) presenta el diseño y el registro de prueba
 |   `101`   | Entero inmediatamente superior al intervalo |  `False`  |  `False`  |   Coincide   |
 :::
 
-Los argumentos `-1` y `101` pertenecen al [dominio de la función](#cap07-tab-especificacion-validacion), aunque correspondan a observaciones que el procesamiento global rechazará. La responsabilidad de la función es producir `False` para esos valores.
+Los argumentos `-1` y `101` pertenecen al [dominio de la función](#cap07-tab-especificacion-validacion), 
+aunque correspondan a observaciones que el procesamiento global rechazará. 
+La responsabilidad de la función es producir `False` para esos valores.
 
 Para la función `calcular_promedio()` puede diseñarse el siguiente conjunto:
 

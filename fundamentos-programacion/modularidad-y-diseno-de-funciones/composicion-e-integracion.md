@@ -2,22 +2,13 @@
 
 ## Implementación de la composición
 
-Una vez examinadas de manera aislada las funciones, pueden incorporarse a la 
-solución completa. La implementación debe conservar las responsabilidades y los 
-intercambios previstos en el diseño descendente). El programa debe reproducir 
-las definiciones elementales para que el programa se ejecute como una unidad completa.
+La **composición** conecta unidades previamente delimitadas para satisfacer la
+especificación del problema completo. La operación coordinadora determina 
+cuándo llamar a cada función, qué argumentos suministrar y cómo utilizar sus 
+retornos. Las pruebas aisladas aportan evidencia sobre cada unidad, mientras 
+que, las conexiones entre ellas aún deben comprobarse [@guttag2021introduction; @iso29119_1_2022].
 
-La **composición** organiza varias unidades para producir conjuntamente el 
-resultado del problema. No modifica la responsabilidad individual de cada función, 
-determina cuándo llamarla, qué argumentos suministrarle y cómo utilizar su retorno 
-o efecto. En el [ejemplo](#cap07-fig-descomposicion-observaciones), la unidad 
-«Procesar observaciones» desempeña la función coordinadora. Conoce la secuencia
-general de trabajo, pero delega la lectura y la validación de observaciones, el 
-cálculo del promedio y la presentación de los resultados.
-
-La composición debe satisfacer obligaciones que no pertenecen por completo 
-a ninguna función elemental. Por ejemplo, para el problema en cuestión y, de 
-acuerdo con las [interfaces del problema](cap07-tab-interfaces-problema):
+Las [interfaces previstas](#cap07-tab-interfaces-problema) establece que:
 
 - Toda observación solicitada debe leerse y clasificarse una vez.
 - Solo los dentro de rango deben incorporarse a la lista de observaciones válidas.
@@ -43,6 +34,42 @@ coordinación utilice su retorno en la rama correcta.
 
 :::
 
+::::{dropdown} Especificación de funciones
+
+:::{table} Especificación de `leer_observacion()`
+:label: tab-especificacion-leer-observacion
+:align: center
+
+| Elemento            | Especificación                                                                 |
+|:--------------------|:-------------------------------------------------------------------------------|
+| Propósito           | Solicitar y obtener la observación situada en una posición determinada.        |
+| Pparámetro          | `posicion` de la observación dentro de la secuencia de entrada.                |
+| Precondición        | `posicion` es un entero positivo y la entrada puede interpretarse como entero. |
+| Rretorno            | Entero introducido para la posición indicada.                                  |
+| Poscondición        | El resultado coincide con el entero ingresado.                                 |
+| Efectos observables | Muestra una solicitud de entrada y consume un dato de la entrada disponible.   |
+
+:::
+
+:::{table} Especificación de `mostrar_resumen()`
+:label: tab-especificacion-mostrar-resumen
+:align: center
+
+| Elemento            | Especificación                                                                                                                                                                                     |
+|:--------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Propósito           | Mostrar las cantidades de observaciones válidas y rechazadas, y promedio cuando está definido.                                                                                                     |
+| Datos requeridos    | `validas`: cantidad de observaciones válidas, `rechazadas`: cantidad de observaciones rechazadas, `promedio`: promedio de las observaciones válidas o `None`.                                      |
+| Precondición        | `validas` y `rechazadas` son enteros no negativos. Si `validas = 0`, `promedio` es `None`. Si `validas > 0`, `promedio` es el valor numérico previamente calculado para las observaciones válidas. |
+| Resultado           | Ninguno                                                                                                                                                                                            |
+| Poscondición        | Los tres argumentos conservan sus valores.                                                                                                                                                         |
+| Efectos observables | Muestra las dos cantidades. Si `promedio == None`, muestra `Promedio no calculado: sin observaciones válidas`, en caso contrario, muestra `Promedio:` seguido del valor del valor `promedio`.      |
+:::
+
+- [Especificacificación de `es_observacion_valida()`](#cap07-tab-esp-es-observacion-valida)
+- [Especificacificación de `calcular_promedio()`](#cap07-tab-esp-es-observacion-valida)
+
+::::
+
 Antes de su implementación, la coordinación puede describirse mediante sus 
 estados y decisiones principales. Por ejemplo,
 
@@ -62,39 +89,100 @@ cantidad de valores rechazados. Esta relación permite evaluar sobre la coherenc
 de la coordinación sin atribuir a la función de validación la responsabilidad 
 de almacenar o contar resultados.
 
-El siguiente diagrama de flujo representa el control interno del algoritmo.
+La [](#cap07-fig-flujo-composicion) muestra el flujo de control de la 
+coordinación. Mientras que el [diagrama de dependencias](#cap07-fig-dependencias-problema) 
+identifica las unidades que colaboran, el diagrama de flujo representa la 
+repetición de llamadas, como las realizadas a `leer_observacion()`, y las 
+condiciones que determinan otras llamadas, como la efectuada a `calcular_promedio()`.
 
-:::{figure}
-:label: cap07-fig-flujo-composicion
+
+:::{figure} ../../assets/images/fundamentos-programacion/flowchart_composicion.png
 :alt: Diagrama de flujo que inicializa la lista y el contador, lee y valida cada observación, agrega o rechaza el valor, calcula el promedio solo si existen valores válidos y muestra el resumen.
+:width: 350px
+:align: center
+:label: cap07-fig-flujo-composicion
 
-<div style="text-align: center;">
-  <img src="../../assets/images/fundamentos-programacion/flowchart_composicion.png"
-    alt="Condicional simple"
-    width="70%">
-</div>
-
+Flujo de control del procesamiento.
 :::
 
-[//]: # (Una implementación en Python coherente con el algoritmo se presenta a continuación:)
+Una implementación en Python coherente con el algoritmo se presenta a 
+continuación:
 
-[//]: # ()
-[//]: # (:::{code-block} python)
+:::{code-block} python
+:label: cap07-code-solucion-modular
+:linenos:
 
-[//]: # (:label: cap07-code-solucion-modular)
+def es_observacion_valida(valor):
+    """Indica si valor pertenece al intervalo cerrado [0, 100]."""
+    observacion_valida = 0 <= valor <= 100
+    return observacion_valida
 
-[//]: # (:linenos:)
 
-[//]: # ()
-[//]: # (:::)
+def calcular_promedio(observaciones_validas):
+    """Devuelve el promedio de una lista no vacía de observaciones."""
+    suma = 0
+    cantidad = 0
+
+    for valor in observaciones_validas:
+        suma += valor
+        cantidad += 1
+
+    promedio = suma / cantidad
+    return promedio
+
+
+def leer_observacion(posicion):
+    """Lee y devuelve la observación situada en posicion."""
+    observacion = int(input(f"Observación {posicion}: "))
+    return observacion
+
+
+def mostrar_resumen(validas, rechazadas, promedio):
+    """Muestra las cantidades y el promedio, cuando está definido."""
+    print("Observaciones válidas:", validas)
+    print("Observaciones rechazadas:", rechazadas)
+
+    if promedio is None:
+        print("Promedio no calculado: sin observaciones válidas")
+    else:
+        print("Promedio:", promedio)
+
+
+def procesar_observaciones(cantidad):
+    """Lee, clasifica y resume una cantidad positiva de observaciones."""
+    observaciones_validas = []
+    rechazadas = 0
+
+    for posicion in range(1, cantidad + 1):
+        valor = leer_observacion(posicion)
+
+        if es_observacion_valida(valor):
+            observaciones_validas.append(valor)
+        else:
+            rechazadas += 1
+
+    validas = len(observaciones_validas)
+
+    if validas > 0:
+        promedio = calcular_promedio(observaciones_validas)
+    else:
+        promedio = None
+
+    mostrar_resumen(validas, rechazadas, promedio)
+
+
+cantidad = int(input("Cantidad de observaciones: "))
+procesar_observaciones(cantidad)
+
+:::
 
 
 ## Pruebas de integración
 
-Una **prueba de integración** examina las interacciones entre funciones conectadas. 
-Comprueba que la composición suministre los argumentos adecuados, respete las 
-precondiciones, use correctamente los retornos y ejecute las unidades en un orden 
-compatible con sus dependencias [@iso29119_1_2022].
+Una **prueba de integración** examina las interacciones entre unidades 
+conectadas. Comprueba que la composición suministre los argumentos adecuados, 
+respete las precondiciones, use correctamente los retornos y ejecute las 
+unidades en un orden compatible con sus dependencias [@iso29119_1_2022].
 
 Que varias funciones superen sus pruebas aisladas no garantiza que la composición 
 sea correcta. Una conexión podría proporcionar argumentos equivocados, omitir 
