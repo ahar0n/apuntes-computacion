@@ -43,9 +43,9 @@ coordinación utilice su retorno en la rama correcta.
 | Elemento            | Especificación                                                                 |
 |:--------------------|:-------------------------------------------------------------------------------|
 | Propósito           | Solicitar y obtener la observación situada en una posición determinada.        |
-| Pparámetro          | `posicion` de la observación dentro de la secuencia de entrada.                |
+| Parámetro           | `posicion` de la observación dentro de la secuencia de entrada.                |
 | Precondición        | `posicion` es un entero positivo y la entrada puede interpretarse como entero. |
-| Rretorno            | Entero introducido para la posición indicada.                                  |
+| Retorno             | Entero introducido para la posición indicada.                                  |
 | Poscondición        | El resultado coincide con el entero ingresado.                                 |
 | Efectos observables | Muestra una solicitud de entrada y consume un dato de la entrada disponible.   |
 
@@ -58,9 +58,9 @@ coordinación utilice su retorno en la rama correcta.
 | Elemento            | Especificación                                                                                                                                                                                     |
 |:--------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Propósito           | Mostrar las cantidades de observaciones válidas y rechazadas, y promedio cuando está definido.                                                                                                     |
-| Datos requeridos    | `validas`: cantidad de observaciones válidas, `rechazadas`: cantidad de observaciones rechazadas, `promedio`: promedio de las observaciones válidas o `None`.                                      |
+| Parámetro           | `validas`: cantidad de observaciones válidas, `rechazadas`: cantidad de observaciones rechazadas, `promedio`: promedio de las observaciones válidas o `None`.                                      |
 | Precondición        | `validas` y `rechazadas` son enteros no negativos. Si `validas = 0`, `promedio` es `None`. Si `validas > 0`, `promedio` es el valor numérico previamente calculado para las observaciones válidas. |
-| Resultado           | Ninguno                                                                                                                                                                                            |
+| Retorno             | Ninguno                                                                                                                                                                                            |
 | Poscondición        | Los tres argumentos conservan sus valores.                                                                                                                                                         |
 | Efectos observables | Muestra las dos cantidades. Si `promedio == None`, muestra `Promedio no calculado: sin observaciones válidas`, en caso contrario, muestra `Promedio:` seguido del valor del valor `promedio`.      |
 :::
