@@ -197,11 +197,11 @@ se debe examinar al menos tres situaciones:
 :label: tab-cap07-pruebas-integracion
 :align: center
 
-| Observaciones      | Interacción examinada                                                           | Resultado esperado                               |
-|:-------------------|:--------------------------------------------------------------------------------|:-------------------------------------------------|
-| `80, -1, 100, 140` | La validación produce ambos resultados y el promedio recibe una lista no vacía. | 2 válidas, 2 rechazadas y promedio `90.0`.       |
-| `-1, 101`          | Ninguna observación es válida. Debe omitirse la llamada al promedio.            | 0 válidas, 2 rechazadas y promedio no calculado. |
-| `0, 100`           | Los dos límites se transmiten al promedio.                                      | 2 válidas, 0 rechazadas y promedio `50.0`.       |
+|  Observaciones  | Interacción examinada                                                           | Resultado esperado                               |
+|:---------------:|:--------------------------------------------------------------------------------|:-------------------------------------------------|
+| `80,-1,100,140` | La validación produce ambos resultados y el promedio recibe una lista no vacía. | 2 válidas, 2 rechazadas y promedio `90.0`.       |
+|    `-1,101`     | Ninguna observación es válida. Debe omitirse la llamada al promedio.            | 0 válidas, 2 rechazadas y promedio no calculado. |
+|     `0,100`     | Los dos límites se transmiten al promedio.                                      | 2 válidas, 0 rechazadas y promedio `50.0`.       |
 
 :::
 
