@@ -54,6 +54,7 @@ project:
             - file: fundamentos-programacion/modularidad-y-diseno-de-funciones/ejercicios-esp-imp-test.md
             - file: fundamentos-programacion/modularidad-y-diseno-de-funciones/diseno-descendente.md
             - file: fundamentos-programacion/modularidad-y-diseno-de-funciones/composicion-e-integracion.md
+            - file: fundamentos-programacion/modularidad-y-diseno-de-funciones/guia_refactorizacion.md
 
         - title: "Persistencia"
           children:
