@@ -14,7 +14,7 @@ Para cada ejercicio, genere:
 
 Los ejercicios aumentan progresivamente en dificultad.
 
-## Problema 1. Cotización de entradas
+## PMOD-001. Cotización de entradas
 
 Una sala necesita cotizar la compra de entradas para una función. La entrada 
 general cuesta \$6000 y la entrada de estudiante cuesta \$4000. Las compras de 
@@ -31,7 +31,7 @@ estudiante y presente una cotización con:
 Si alguna cantidad ingresada es negativa o cero, el programa deberá informar 
 que la compra no es válida y terminar sin mostrar una cotización.
 
-## Problema 2. Análisis de palabras
+## PMOD-002. Análisis de palabras
 
 Se requiere un resumen de las palabras utilizadas en un manuscrito. Desarrolle 
 un programa que solicite una cantidad positiva de palabras y luego lea exactamente 
@@ -53,7 +53,7 @@ cero vocales y omitir la palabra más larga y su longitud. Si la cantidad
 inicial no es positiva, el programa deberá mostrar un error y terminar sin 
 solicitar palabras.
 
-## Problema 3. Tarifa de despachos
+## PMOD-003. Tarifa de despachos
 
 Una empresa necesita cotizar varios paquetes. Desarrolle un programa que 
 solicite la cantidad de paquetes y, para cada uno, su peso en kilogramos y la
@@ -84,7 +84,7 @@ rechazados, el costo total es cero.
 Si la cantidad inicial no es positiva, se deberá mostrar un error y terminar. 
 No se vuelven a solicitar los datos de un paquete rechazado.
 
-## Problema 4. Sistema votación
+## PMOD-004. Sistema votación
 
 Desarrolle un programa que registre los votos de una elección entre las 
 opciones `A`, `B` y `C`. El ingreso de votos termina cuando se introduce `FIN`.
