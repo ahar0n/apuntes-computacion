@@ -55,8 +55,9 @@ project:
             - file: fundamentos-programacion/modularidad-y-diseno-de-funciones/diseno-descendente.md
             - file: fundamentos-programacion/modularidad-y-diseno-de-funciones/composicion-e-integracion.md
             - file: fundamentos-programacion/modularidad-y-diseno-de-funciones/ejercicio-guiado-refactorizacion.md
-#            - file: fundamentos-programacion/modularidad-y-diseno-de-funciones/ejercicio-guiado-refactorizacion.md
+#            - file: fundamentos-programacion/modularidad-y-diseno-de-funciones/solucion/solucion-ejercicio-guiado-refactorizacion.md.md
             - file: fundamentos-programacion/modularidad-y-diseno-de-funciones/ejercicios-implementaciones-modulares.md
+#            - file: fundamentos-programacion/modularidad-y-diseno-de-funciones/solucion/solucion-ejercicios-implementaciones-modulares.md
 
         - title: "Persistencia"
           children:
