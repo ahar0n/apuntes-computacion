@@ -44,6 +44,7 @@ project:
           children:
             - file: fundamentos-programacion/estructuras-de-datos/secuencias.ipynb
             - file: fundamentos-programacion/estructuras-de-datos/ejercicios-uso-de-secuencias.ipynb
+            - file: fundamentos-programacion/estructuras-de-datos/ejercicios_secuencias_e_indices.md
 
 
         - title: "Modularidad y diseño de funciones"
