@@ -104,7 +104,7 @@ Se recomienda realizar el seguimiento manual.
 ::::
 
 
-**IDX-002.** Implemente la función `posiciones_de(secuencia, buscado)` que recibe como argumento una lista o tupla, y retorna una lista con todos los índices donde aparece `buscado`. La función no modifica la entrada, y Uua secuencia vacía retorna `[]`.
+**IDX-002.** Implemente la función `posiciones_de(secuencia, buscado)` que recibe como argumento una lista o tupla, y retorna una lista con todos los índices donde aparece `buscado`. La función no modifica la entrada, y una secuencia vacía retorna `[]`.
 
 Por ejemplo,
 
@@ -168,7 +168,7 @@ print(copia_original)
 
 
 
-
+(IDX-006)=
 **IDX-006.** Implemente la función `intercambiar(datos, i, j)`, que recibe una lista y dos índices válidos. La función debe intercambiar los elementos de estas posiciones, modificar la lista recibida y retornar `None`. Por ejemplo,
 
 ```python
@@ -187,7 +187,6 @@ Casos de prueba sugeridos:
 |           | Intercambiar dos posiciones interiores.      |          |              |
 |           | Utilizar el mismo índice para `i` y `j`      |          |              |
 |           | :                                            |          |              |
-
 
 
 
@@ -213,7 +212,7 @@ maximo_y_posicion([7])              # (7, 0)
 ```
 
 
-
+(IDX-009)=
 **IDX-009.** Un inventario se representa mediante una lista de tuplas, por ejemplo,
 
 ```python
@@ -262,3 +261,76 @@ promedios_moviles([10, 14, 18, 22, 26], 3)          # (14.0, 18.0, 22.0)
 promedios_moviles((4, 8), 1)                        # (4.0, 8.0)
 promedios_moviles([4, 8], 3)                        # ()
 ```
+
+
+
+**IDX-010.** Implemente la función `invertir_tramo(datos, inicio, fin)` que recibe una lista y dos índices no negativos que cumplen `0 <= inicio <= fin < len(datos)`. Esta función invierte el orden de los elementos entre `inicio` y `fin`, incluyendo ambos extremos, y conserva el resto de la lista.
+
+La función modifica la lista recibida y retorna `None`. A continuación un ejemplo del llamado a la función:
+
+```python
+datos = [10, 20, 30, 40, 50, 60]
+invertir_tramo(datos, 1, 4)         # datos: [10, 50, 40, 30, 20, 60]
+```
+
+**Restricciones:** 
+- Trabaje con dos índices que se aproximan desde los extremos del tramo. 
+- No utilice una lista auxiliar. 
+- Puedes reutilizar la función `intercambiar()` del [ejercicio 6](#IDX-006).
+
+
+
+**IDX-011.** Una secuencia contiene mediciones. Un tramo creciente está formado por elementos consecutivos donde cada valor es mayor que el anterior. Una igualdad interrumpe el crecimiento. Un elemento aislado constituye un tramo de longitud `1`.
+
+Implemente la función `tramo_creciente_mas_largo(secuencia)` recibe una lista o tupla de números y retorna una tupla `(inicio, fin, longitud)` correspondiente al tramo creciente de mayor longitud. Los índices de inicio y fin son inclusivos.
+
+- En caso de empate, conservar el tramo que comienza primero.
+- Para una secuencia vacía, retornar `(-1, -1, 0)`.
+- No modificar la entrada.
+
+Ejemplos de llamadas a la función:
+
+```python
+tramo_creciente_mas_largo([2, 5, 3, 4, 8, 1, 2])    # (2, 4, 3): tramo [3, 4, 8]
+tramo_creciente_mas_largo((1, 3, 2, 4))             # (0, 1, 2): empate entre dos tramos
+tramo_creciente_mas_largo([7, 7, 7])                # (0, 0, 1)
+tramo_creciente_mas_largo([])                       # (-1, -1, 0)
+```
+
+**Restricciones:** 
+- Realizar un solo recorrido por índices. 
+- Mantener información del tramo actual y del mejor tramo encontrado. 
+- No construir listas con todos los tramos.
+
+
+
+**IDX-012.** Un registro de entregas consiste en una lista con tuplas `(producto, cantidad)`. Un producto puede aparecer varias veces. Se desea construir un resumen que reúna las cantidades de cada producto.
+
+```python
+entregas = [
+    ("cuaderno", 3),
+    ("lapiz", 5),
+    ("cuaderno", 2),
+    ("goma", 4),
+    ("lapiz", 1)
+]
+```
+
+Implemente la función `consolidar_entregas(entregas)` que recibe como argumento una lista o tupla de registros `(producto, cantidad)`, con nombres de producto de tipo cadena y cantidades enteras no negativas. Esta función retorna una lista nueva de tuplas `(producto, cantidad_total)`.
+
+- Cada producto debe aparecer una sola vez en el resultado.
+- Conserva el orden de primera aparición de los productos.
+- No modifica la secuencia recibida ni sus registros.
+- Para una secuencia vacía, retorna `[]`.
+
+Ejemplos de llamadas a la función:
+
+```python
+consolidar_entregas(entregas)                       # [("cuaderno", 5), ("lapiz", 6), ("goma", 4)]
+consolidar_entregas((("lapiz", 2), ("lapiz", 0)))   # [("lapiz", 2)]
+consolidar_entregas([])                             # []
+```
+
+**Restricciones:** 
+- Recorrer los registros por índices y reutilizar `buscar_producto()` del [ejercicio 8](#IDX-009) para buscar en el resumen parcial. 
+- Si un producto ya existe, reemplazar su tupla por otra con la cantidad acumulada. Si no existe, agregar una nueva tupla.
