@@ -6,6 +6,7 @@ project:
 
   bibliography:
     - references/references.bib
+    - references/gestion-de-datos-espaciales.bib
 
   toc:
     - file: index.md
@@ -61,6 +62,12 @@ project:
 
         - title: "Persistencia"
           children:
+
+    - file: gestion-de-datos-espaciales/gestion-de-datos-espaciales.md
+      children:
+
+        - file: gestion-de-datos-espaciales/capitulo-06-indexacion-procesamiento-administracion-datos-espaciales.md
+#        - file: gestion-de-datos-espaciales/cap6_solucion_ejercicios/cap6_solucion.md
 
 site:
   template: book-theme

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760"><rect width="100%" height="100%" fill="white"/>
+<text x="85" y="200.0" font-family="DejaVu Sans, sans-serif" font-size="25" font-weight="bold" fill="#17324d">Punto</text>
+<polyline points="60,560 60,272" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="60,560 348,560" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="108,560 108,272" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="60,512 348,512" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="156,560 156,272" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="60,464 348,464" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="204,560 204,272" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="60,416 348,416" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="252,560 252,272" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="60,368 348,368" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="300,560 300,272" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="60,320 348,320" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="348,560 348,272" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="60,272 348,272" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<circle cx="204" cy="368" r="10" fill="#236b9a"/>
+<text x="70" y="616.0" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="normal" fill="#17324d">[3,3] × [4,4]</text>
+<text x="490" y="200.0" font-family="DejaVu Sans, sans-serif" font-size="25" font-weight="bold" fill="#17324d">Línea</text>
+<polyline points="465,560 465,272" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="465,560 753,560" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="513,560 513,272" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="465,512 753,512" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="561,560 561,272" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="465,464 753,464" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="609,560 609,272" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="465,416 753,416" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="657,560 657,272" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="465,368 753,368" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="705,560 705,272" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="465,320 753,320" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="753,560 753,272" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="465,272 753,272" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<rect x="513" y="320" width="192" height="192" fill="#fff0df"/>
+<polyline points="513,320 705,320 705,512 513,512 513,320" fill="none" stroke="#ad4d13" stroke-width="3" stroke-dasharray="9 9"/>
+<polyline points="513,512 705,320" fill="none" stroke="#236b9a" stroke-width="5"/>
+<text x="475" y="616.0" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="normal" fill="#17324d">[1,5] × [1,5]</text>
+<text x="895" y="200.0" font-family="DejaVu Sans, sans-serif" font-size="25" font-weight="bold" fill="#17324d">Polígono cóncavo</text>
+<polyline points="870,560 870,272" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="870,560 1158,560" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="918,560 918,272" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="870,512 1158,512" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="966,560 966,272" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="870,464 1158,464" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="1014,560 1014,272" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="870,416 1158,416" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="1062,560 1062,272" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="870,368 1158,368" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="1110,560 1110,272" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="870,320 1158,320" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="1158,560 1158,272" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<polyline points="870,272 1158,272" fill="none" stroke="#e8eff5" stroke-width="2"/>
+<rect x="918" y="320" width="192" height="192" fill="#fff0df"/>
+<polyline points="918,320 1110,320 1110,512 918,512 918,320" fill="none" stroke="#ad4d13" stroke-width="3" stroke-dasharray="9 9"/>
+<polygon points="918,512 1110,512 1110,464 966,464 966,320 918,320" fill="#cde6e2"/>
+<polyline points="918,512 1110,512 1110,464 966,464 966,320 918,320 918,512" fill="none" stroke="#087f75" stroke-width="3"/>
+<text x="880" y="616.0" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="normal" fill="#17324d">[1,5] × [1,5]</text>
+<polyline points="1053,359 1071,377" fill="none" stroke="#ad4d13" stroke-width="4"/>
+<polyline points="1053,377 1071,359" fill="none" stroke="#ad4d13" stroke-width="4"/>
+</svg>

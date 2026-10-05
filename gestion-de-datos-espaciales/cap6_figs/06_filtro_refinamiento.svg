@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760"><rect width="100%" height="100%" fill="white"/>
+<text x="45" y="57.0" font-family="DejaVu Sans, sans-serif" font-size="32" font-weight="bold" fill="#17324d">07 | Filtro y refinamiento: dos decisiones distintas</text>
+<rect x="65" y="180" width="310" height="155" fill="#f5f8fa"/>
+<polyline points="65,180 375,180 375,335 65,335 65,180" fill="none" stroke="#236b9a" stroke-width="3"/>
+<text x="87" y="225.0" font-family="DejaVu Sans, sans-serif" font-size="28" font-weight="bold" fill="#236b9a">Datos</text>
+<text x="87" y="273.0" font-family="DejaVu Sans, sans-serif" font-size="23" font-weight="normal" fill="#17324d">N = 240.000</text>
+<text x="87" y="304.05" font-family="DejaVu Sans, sans-serif" font-size="23" font-weight="normal" fill="#17324d">Todos los puntos</text>
+<rect x="485" y="180" width="310" height="155" fill="#f5f8fa"/>
+<polyline points="485,180 795,180 795,335 485,335 485,180" fill="none" stroke="#ad4d13" stroke-width="3"/>
+<text x="507" y="225.0" font-family="DejaVu Sans, sans-serif" font-size="28" font-weight="bold" fill="#ad4d13">Candidatos</text>
+<text x="507" y="273.0" font-family="DejaVu Sans, sans-serif" font-size="23" font-weight="normal" fill="#17324d">C = 2.500</text>
+<text x="507" y="304.05" font-family="DejaVu Sans, sans-serif" font-size="23" font-weight="normal" fill="#17324d">Superan el filtro MBR</text>
+<rect x="905" y="180" width="310" height="155" fill="#f5f8fa"/>
+<polyline points="905,180 1215,180 1215,335 905,335 905,180" fill="none" stroke="#087f75" stroke-width="3"/>
+<text x="927" y="225.0" font-family="DejaVu Sans, sans-serif" font-size="28" font-weight="bold" fill="#087f75">Respuesta</text>
+<text x="927" y="273.0" font-family="DejaVu Sans, sans-serif" font-size="23" font-weight="normal" fill="#17324d">R = 1.275</text>
+<text x="927" y="304.05" font-family="DejaVu Sans, sans-serif" font-size="23" font-weight="normal" fill="#17324d">Cumplen la forma</text>
+<polyline points="380,250 478,250" fill="none" stroke="#17324d" stroke-width="3"/>
+<polygon points="478,250 467.4690092573155,255.75310646325045 467.4690092573155,244.24689353674955" fill="#17324d"/>
+<polyline points="478,250 467.4690092573155,255.75310646325045 467.4690092573155,244.24689353674955 478,250" fill="none" stroke="#17324d" stroke-width="1"/>
+<polyline points="800,250 898,250" fill="none" stroke="#17324d" stroke-width="3"/>
+<polygon points="898,250 887.4690092573155,255.75310646325045 887.4690092573155,244.24689353674955" fill="#17324d"/>
+<polyline points="898,250 887.4690092573155,255.75310646325045 887.4690092573155,244.24689353674955 898,250" fill="none" stroke="#17324d" stroke-width="1"/>
+<text x="335" y="393.0" font-family="DejaVu Sans, sans-serif" font-size="23" font-weight="normal" fill="#627485">237.500 descartados</text>
+<text x="335" y="424.05" font-family="DejaVu Sans, sans-serif" font-size="23" font-weight="normal" fill="#627485">por extensión</text>
+<text x="820" y="393.0" font-family="DejaVu Sans, sans-serif" font-size="23" font-weight="normal" fill="#ad4d13">1.225 falsos positivos</text>
+<text x="820" y="424.05" font-family="DejaVu Sans, sans-serif" font-size="23" font-weight="normal" fill="#ad4d13">eliminados al refinar</text>
+<rect x="80" y="485" width="1120" height="150" fill="#e8eff5"/>
+<polyline points="80,485 1200,485 1200,635 80,635 80,485" fill="none" stroke="#236b9a" stroke-width="1"/>
+<text x="110" y="536.0" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="normal" fill="#17324d">Garantía lógica: respuesta exacta ⊆ candidatos ⊆ datos</text>
+<text x="110" y="571.1" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="normal" fill="#17324d">Acceso físico: EXPLAIN permite comprobar si se utiliza el índice.</text>
+<text x="110" y="606.2" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="normal" fill="#17324d">Las cantidades son deducidas; los tiempos deben medirse.</text>
+<text x="45" y="736.0" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="normal" fill="#627485">Elaboración propia. Cuadrícula sintética de RedAgua; no es un plan de ejecución observado.</text>
+</svg>
