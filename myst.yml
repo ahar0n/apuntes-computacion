@@ -7,6 +7,7 @@ project:
   bibliography:
     - references/references.bib
     - references/gestion-de-datos-espaciales.bib
+    - references/diccionario_refs.bib
 
   toc:
     - file: index.md
@@ -45,6 +46,7 @@ project:
             - file: fundamentos-programacion/estructuras-de-datos/secuencias.ipynb
             - file: fundamentos-programacion/estructuras-de-datos/ejercicios-uso-de-secuencias.ipynb
             - file: fundamentos-programacion/estructuras-de-datos/ejercicios_secuencias_e_indices.md
+            - file: fundamentos-programacion/estructuras-de-datos/diccionarios.ipynb
 
 
         - title: "Modularidad y diseño de funciones"
