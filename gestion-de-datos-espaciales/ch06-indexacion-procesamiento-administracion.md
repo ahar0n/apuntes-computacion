@@ -21,7 +21,7 @@ El plano del caso mide 120x80 unidades abstractas, con coordenadas `(x,y)` y
 |  5  | Plaza Frontera    |  60 | 40 | 20 |       Norte       |
 |  6  | Reserva Oriente   | 110 | 35 | 25 |       Norte       |
 
-:::{figure} cap6_figs/01_red_agua.svg
+:::{figure} ch06/ch06-figs/01_red_agua.svg
 :alt: Seis puntos de RedAgua distribuidos en un plano de 120 por 80 unidades; P5 está en y igual a 40 y P6 se localiza al sur de esa frontera.
 :label: cap6-red-agua
 
@@ -48,7 +48,7 @@ El **resultado lógico** es el conjunto de filas que satisface el requerimiento.
 
 Considere la definición de una zona triangular de inspección en la región de estudio del sistema RedAgua ([](#cap6-fig-zona-triangular)).
 
-:::{figure} cap6_figs/03_triangulo_prediccion.svg
+:::{figure} ch06/ch06-figs/03_triangulo_prediccion.svg
 :alt: Zona triángular
 :label: cap6-fig-zona-triangular
 
@@ -113,7 +113,7 @@ $$\operatorname{MBR}(g)=[x_{\min},x_{\max}]\times[y_{\min},y_{\max}].$$
 
 En una línea diagonal, el rectángulo incluye superficie ajena a la línea. En un polígono irregular, omite detalles de forma, concavidades y huecos (ver [](#cap6-fig-mbr)). Su utilidad consiste en representar la extensión con pocos valores, adecuados para comparaciones y agrupamientos.
 
-:::{figure} cap6_figs/02_mbr_formas.svg
+:::{figure} ch06/ch06-figs/02_mbr_formas.svg
 :alt: Un punto, una línea diagonal y un polígono en L con sus cajas alineadas con los ejes.
 :label: cap6-fig-mbr
 
@@ -162,7 +162,7 @@ Su envolvente es:
 
 $$ \operatorname{MBR}(T)=[0,120]\times[0,80]. $$
 
-:::{figure} cap6_figs/03_triangulo_resuelto.svg
+:::{figure} ch06/ch06-figs/03_triangulo_resuelto.svg
 :alt: Zona triangular de inspección
 :label: cap6-zona-inspeccion
 
@@ -217,7 +217,7 @@ Los índices ordinarios de InnoDB emplean B-trees, los índices espaciales utili
 
 La [](#cap6-fig-rtree-ejemplo) muestra un recorrido para $Q=[15,30]\times[10,30]$. En la raíz se comparan las envolventes de las entradas $A$ y $B$ con la ventana. Se conserva $A$ porque ambas regiones intersecan y se descarta $B$ porque $Q_{x_{\max}}=30 < B_{x_{\min}}= 80$. Se desciende por la referencia de $A$ y se examinan sus entradas: P1 y P5 quedan fuera y P3 coincide. La poda de $B$ evita examinar sus tres entradas individuales en este recorrido conceptual.
 
-:::{figure} cap6_figs/04_rtree_recorrido.svg
+:::{figure} ch06/ch06-figs/04_rtree_recorrido.svg
 :alt: Dos grupos de tres puntos y un árbol de dos ramas; la ventana permite descartar el grupo B.
 :label: cap6-fig-rtree-ejemplo
 
@@ -245,7 +245,7 @@ Por ejemplo, la [](#cap6-fig-rtree-solapamiento) permite diferenciar tres situac
 
 Visitar una rama no garantiza que sus hojas produzcan candidatos.
 
-:::{figure} cap6_figs/05_rtree_solapamiento.svg
+:::{figure} ch06/ch06-figs/05_rtree_solapamiento.svg
 :alt: Las envolventes de dos grupos de puntos se solapan; una ventana interseca ambas sin contener puntos.
 :label: cap6-fig-rtree-solapamiento
 
@@ -431,7 +431,7 @@ $$\text{Caja}=[30,90]\times[10,70]$$
 
 Esta caja envolvente contiene el círculo y algunas regiones exteriores (ver [](#cap6-fig-ejemplo-distancia)). Pertenecer a ella es una condición necesaria, pero no suficiente. Los puntos dentro o sobre su borde se conservan como candidatos, y los exteriores se descartan sin excluir resultados válidos.
 
-:::{figure} cap6_figs/07_radio.svg
+:::{figure} ch06/ch06-figs/07_radio.svg
 :alt: Círculo de radio 30 centrado en (60,40) dentro de su caja; P2 y P4 quedan fuera del círculo.
 :label: cap6-fig-ejemplo-distancia
 
