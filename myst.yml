@@ -64,12 +64,19 @@ project:
             - file: fundamentos-programacion/modularidad-y-diseno-de-funciones/ejercicios-implementaciones-modulares.md
 #            - file: fundamentos-programacion/modularidad-y-diseno-de-funciones/solucion/solucion-ejercicios-implementaciones-modulares.md
 
+        - title: "Validación y excepciones"
+          children:
+            - file: fundamentos-programacion/validacion-y-excepciones/restricciones-validacion.md
+            - file: fundamentos-programacion/validacion-y-excepciones/tratamiento-de-excepciones.md
+            - file: fundamentos-programacion/validacion-y-excepciones/propagacion-de-excepciones.md
+            - file: fundamentos-programacion/validacion-y-excepciones/diseno-de-tratamiento-de-excepciones.md
+
+
         - title: "Persistencia"
           children:
 
     - file: gestion-de-datos-espaciales/gestion-de-datos-espaciales.md
       children:
-
         - file: gestion-de-datos-espaciales/ch06-indexacion-procesamiento-administracion.md
 
 site:
