@@ -7,6 +7,7 @@ project:
   bibliography:
     - references/references.bib
     - references/gestion-de-datos-espaciales.bib
+    - references/ref_modelado_temporal.bib
     - references/diccionario_refs.bib
 
   toc:
@@ -78,6 +79,13 @@ project:
     - file: gestion-de-datos-espaciales/gestion-de-datos-espaciales.md
       children:
         - file: gestion-de-datos-espaciales/ch06-indexacion-procesamiento-administracion.md
+
+        - title: Modelado de datos temporales
+          children:
+            - file: gestion-de-datos-espaciales/ch07/conceptos-basicos.md
+            - file: gestion-de-datos-espaciales/ch07/representacion-temporal.md
+            - file: gestion-de-datos-espaciales/ch07/consultas.md
+            - file: gestion-de-datos-espaciales/ch07/tratamiento-de-series-temporales.ipynb
 
 site:
   template: book-theme
