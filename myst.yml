@@ -71,6 +71,7 @@ project:
             - file: fundamentos-programacion/validacion-y-excepciones/tratamiento-de-excepciones.md
             - file: fundamentos-programacion/validacion-y-excepciones/propagacion-de-excepciones.md
             - file: fundamentos-programacion/validacion-y-excepciones/diseno-de-tratamiento-de-excepciones.md
+            - file: fundamentos-programacion/validacion-y-excepciones/ejercicios-validacion-y-excepciones.md
 
 
         - title: "Persistencia"
