@@ -7,7 +7,7 @@ herramientas y aplicaciones del área de computación.
 
 <br>
 
-© 2026 Aharon Cuevas  
+© 2025 Aharon Cuevas  
 Universidad de Concepción
 
 <br>
