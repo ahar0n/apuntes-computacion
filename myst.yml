@@ -87,6 +87,7 @@ project:
             - file: gestion-de-datos-espaciales/ch07/representacion-temporal.md
             - file: gestion-de-datos-espaciales/ch07/consultas.ipynb
             - file: gestion-de-datos-espaciales/ch07/tratamiento-de-series-temporales.ipynb
+            - file: gestion-de-datos-espaciales/ch07/ejercicios-tratamiento-series-temporales.ipynb
 
 site:
   template: book-theme
