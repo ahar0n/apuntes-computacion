@@ -1,4 +1,3 @@
-
 # Ejercicios: Tratamiento de diccionarios
 
 **DCT-001.** Una agenda (diccionario) relaciona nombres con teléfonos. Implemente la función `registrar_contacto(agenda, nombre, telefono)` para agregar un contacto solo si su nombre no aparece como clave. Si ya existe, conservar su teléfono.
@@ -268,4 +267,135 @@ Salida esperada:
 
 Además, verifique su solución con un registro vacío, una lista de solicitudes vacía y notas exactamente iguales a 1.0, 4.0 y 7.0. Incluya solicitudes con notas inferiores a 1.0 y superiores a 7.0. Verifique que los argumentos no cambien y que modificar el registro devuelto no altere el original.
 
+::::{dropdown} Solución
+:open:
 
+| Función                | Parámetros                                                     | Retorno  | Responsabilidad                                                                                                                                         |
+|:-----------------------|:---------------------------------------------------------------|:--------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `duplicar_registro()`   | original `dict`                                                |   `dict`   | Crear una copia del registro de expedientes, incluyendo listas de notas, para preservar los originales.                                                 |
+| `validar_entrada()`     | registro: `dict` <br>matricula: `str`<br>nota: `float` o `str` |   `bool`   | Verificar la existencia de matrícula, verificar que nota pueda convertirse a un punto flotante y validar que pertenezca al intervalo [1.0, 7.0].        |
+| `insertar_nota()`       | registro: `dict`<br>solicitud: `dict`                          |   `bool`   | Extraer los datos de una solicitud y agregar nota a la ficha cuando sea válida.                                                                         |
+| `contar_aprobadas()`    | notas: `list[float]`                                           |   `int`    | Contar las calificaciones mayores o iguales a 4.0.                                                                                                      |
+| `generar_informe()`     | registro: `dict`                                               |   `dict`   | Generar un informe por matrícula con el nombre del estudiante, la cantidad total de notas y el número de notas aprobadas.                               |
+| `actualizar_registro()` | original: `dict` <br>solicitudes: `list[dict]`                 |   `dict`   | Coordinar el procesamiento de solicitudes, actualizar la copia del registro, contar las solicitudes aceptadas y rechazadas, y generar el informe final. |
+
+
+```python
+
+def duplicar_registro(original):
+    """Genera una copia independiente del registro de expedientes."""
+    copia = {}
+    for matricula, ficha in original.items():
+        nueva_ficha = ficha.copy()
+        nueva_ficha["notas"] = ficha["notas"].copy()
+        copia[matricula] = nueva_ficha
+    
+    return copia
+        
+
+def validar_entrada(registro, matricula, nota):
+    """Valída los datos de una solicitud de modificación de expediente.
+    
+    Comprueba la existencia de matrícula, verifica que nota pueda  convertirse 
+    a un número (float) y valída que pertenezca al intervalo [1.0, 7.0]
+    
+    :param registro: Diccionario de fichas.
+    :type registro: dict
+    :param matricula: Matrícula de la ficha que se modificará.
+    :type matricula: str
+    :param nota: Nota que se desea incorporar a la ficha.
+    :type nota: float
+
+    :return: True si matricula existe y nota está dentro del intervalo, 
+            False en caso contrario.
+    :rtype: bool
+    """
+    
+    # validad matricula
+    if matricula not in registro:
+        return False
+    
+    # valida nota en rango
+    try: 
+        if nota < 1.0 or nota > 7.0:
+    except ValueError:
+        return False
+    
+    return True
+    
+
+def insertar_entrada(registro, solicitud):
+    """Inserta una nota al registro si la solicitud es válida.
+    
+    Args:
+        registro (dict): Diccionario de fichas que será actualizado.
+        solicitud (dict): Solicitud que contiene claves "matricula" como clave 
+                        y "nota" (float).
+
+    Returns:
+        bool: True si la nota fue incorporada correctamente.
+        False si la solicitud no superó la validación.
+
+    Note:
+        Modifica registro (parámetro) cuando la solicitud es válida.
+    
+    """
+    matricula = solicitud["matricula"]
+    nota = solicitud["nota"]
+    
+    es_valida = validar_entrada(registro, matricula, nota)
+    if es_valida:
+        registro[matricula]["nota"].append(nota)
+    
+    return es_valida
+    
+
+def contar_aprobadas(notas):
+    """Cuenta las notas mayores o igual que 4.0 de una lista."""
+
+    cantidad = 0
+
+    for nota in notas:
+        if nota >= 4.0:
+            cantidad = cantidad + 1
+
+    return cantidad
+
+
+def generar_informe(registro):
+    """Genera un informe resumido de las fichas."""
+
+    informe = {}
+
+    for matricula, ficha in registro.items():
+        informe[matricula] = {
+            "nombre": ficha["nombre"],
+            "cantidad": len(ficha["notas"]),
+            "aprobadas": contar_aprobadas(ficha["notas"]),
+        }
+
+    return informe
+
+
+def actualizar_registro(original, solicitudes):
+    """Procesa solicitudes de actualización y genera informe."""
+
+    registro = duplicar_registro(original)
+    resumen = {"aceptadas": 0, "rechazadas": 0}
+
+    for solicitud in solicitudes:
+        if insertar_entrada(registro, solicitud):
+            resumen["aceptadas"] += 1
+        else:
+            resumen["rechazadas"] += 1
+
+    return {
+        "registro": registro,
+        "solicitudes": resumen,
+        "informe": generar_informe(registro),
+    }
+
+
+```
+
+::::
