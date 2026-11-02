@@ -101,7 +101,7 @@ def insertar_nota(registro, solicitud):
 
 
 def contar_aprobadas(notas):
-    """Cuenta las notas mayores o igual que 4.0 de una lista."""
+    """Cuenta notas mayores o igual que 4.0 de una lista."""
 
     cantidad = 0
 
@@ -113,7 +113,7 @@ def contar_aprobadas(notas):
 
 
 def generar_informe(registro):
-    """Genera un informe resumido de los expedientes académicos."""
+    """Genera informe resumido de los expedientes académicos."""
 
     informe = {}
 

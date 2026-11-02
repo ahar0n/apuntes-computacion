@@ -270,20 +270,20 @@ Además, verifique su solución con un registro vacío, una lista de solicitudes
 ::::{dropdown} Solución
 :open:
 
-| Función                | Parámetros                                                     | Retorno  | Responsabilidad                                                                                                                                         |
-|:-----------------------|:---------------------------------------------------------------|:--------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `duplicar_registro()`   | original `dict`                                                |   `dict`   | Crear una copia del registro de expedientes, incluyendo listas de notas, para preservar los originales.                                                 |
-| `validar_entrada()`     | registro: `dict` <br>matricula: `str`<br>nota: `float` o `str` |   `bool`   | Verificar la existencia de matrícula, verificar que nota pueda convertirse a un punto flotante y validar que pertenezca al intervalo [1.0, 7.0].        |
-| `insertar_nota()`       | registro: `dict`<br>solicitud: `dict`                          |   `bool`   | Extraer los datos de una solicitud y agregar nota a la ficha cuando sea válida.                                                                         |
-| `contar_aprobadas()`    | notas: `list[float]`                                           |   `int`    | Contar las calificaciones mayores o iguales a 4.0.                                                                                                      |
-| `generar_informe()`     | registro: `dict`                                               |   `dict`   | Generar un informe por matrícula con el nombre del estudiante, la cantidad total de notas y el número de notas aprobadas.                               |
-| `actualizar_registro()` | original: `dict` <br>solicitudes: `list[dict]`                 |   `dict`   | Coordinar el procesamiento de solicitudes, actualizar la copia del registro, contar las solicitudes aceptadas y rechazadas, y generar el informe final. |
+| Función                | Parámetros                                                     | Retorno  | Responsabilidad                                                                                                                                   |
+|:-----------------------|:---------------------------------------------------------------|:--------:|:--------------------------------------------------------------------------------------------------------------------------------------------------|
+| `duplicar_registro()`   | original `dict`                                                |   `dict`   | Crear copia del registro de fichas, incluyendo listas de notas, para preservar los originales.                                                    |
+| `validar_entrada()`     | registro: `dict` <br>matricula: `str`<br>nota: `float` o `str` |   `bool`   | Verificar la existencia de matrícula, verificar que nota pueda convertirse a un punto flotante y validar que pertenezca al intervalo [1.0, 7.0].  |
+| `insertar_nota()`       | registro: `dict`<br>solicitud: `dict`                          |   `bool`   | Extraer los datos de una solicitud e insertar nota a la ficha cuando sea válida.                                                                  |
+| `contar_aprobadas()`    | notas: `list[float]`                                           |   `int`    | Contar las notas mayores o iguales a 4.0.                                                                                                         |
+| `generar_informe()`     | registro: `dict`                                               |   `dict`   | Generar un informe por matrícula con el nombre del estudiante, la cantidad total de notas y la cantidd de notas aprobadas.                        |
+| `actualizar_registro()` | original: `dict` <br>solicitudes: `list[dict]`                 |   `dict`   | Coordinar solicitudes de actualización, actualizar la copia del registro, contar las solicitudes aceptadas/rechazadas, y generar el informe. |
 
 
 ```python
 
 def duplicar_registro(original):
-    """Genera una copia independiente del registro de expedientes."""
+    """Genera una copia independiente del registro de expedientes o fichas."""
     copia = {}
     for matricula, ficha in original.items():
         nueva_ficha = ficha.copy()
@@ -294,7 +294,7 @@ def duplicar_registro(original):
         
 
 def validar_entrada(registro, matricula, nota):
-    """Valída los datos de una solicitud de modificación de expediente.
+    """Valída los datos de una solicitud de modificación de fichas.
     
     Comprueba la existencia de matrícula, verifica que nota pueda  convertirse 
     a un número (float) y valída que pertenezca al intervalo [1.0, 7.0]
@@ -315,17 +315,25 @@ def validar_entrada(registro, matricula, nota):
     if matricula not in registro:
         return False
     
-    # valida nota en rango
-    try: 
-        if nota < 1.0 or nota > 7.0:
+    # valída valor (ValueError) e.g.: "a", y tipo (TypeError) e.g., 1,2 
+    try:
+        nota = float(nota)
+
     except ValueError:
+        return False
+
+    except TypeError:
+        return False
+    
+    # valida nota en rango
+    if not (1.0 <= nota <= 7.0):
         return False
     
     return True
     
 
 def insertar_entrada(registro, solicitud):
-    """Inserta una nota al registro si la solicitud es válida.
+    """Inserta nota al registro si la solicitud es válida.
     
     Args:
         registro (dict): Diccionario de fichas que será actualizado.
@@ -351,7 +359,7 @@ def insertar_entrada(registro, solicitud):
     
 
 def contar_aprobadas(notas):
-    """Cuenta las notas mayores o igual que 4.0 de una lista."""
+    """Cuenta notas mayores o igual que 4.0 de una lista."""
 
     cantidad = 0
 
