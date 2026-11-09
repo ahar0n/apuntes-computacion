@@ -1,14 +1,54 @@
-def agregar_reaccion(mensajes, usuarios, identificador, usuario):
-    autor, texto, reacciones = mensajes[identificador]
+def validar_reaccion(mensajes, usuarios, identificador, usuario):
+    """Comprueba si un usuario puede reaccionar a un mensaje.
+
+    Args:
+        mensajes (dict): Diccionario de mensajes.
+        usuarios (list): Usuarios registrados.
+        identificador (int): Identificador del mensaje.
+        usuario (str): Usuario que desea reaccionar.
+
+    Returns:
+        str: Cadena vacía si la reacción es válida o mensaje de error.
+    """
+
+    if identificador not in mensajes:
+        return "El mensaje no existe."
 
     if usuario not in usuarios:
-        return None, "El usuario no está registrado."
+        return "El usuario no está registrado."
+
+    autor, texto, reacciones = mensajes[identificador]
 
     if usuario == autor:
-        return None, "No puede dar «Me gusta» a su propio mensaje."
+        return "No puede dar «Me gusta» a su propio mensaje."
 
     if usuario in reacciones:
-        return None, "El usuario ya dio «Me gusta» a este mensaje."
+        return "El usuario ya dio «Me gusta» a este mensaje."
+
+    return ""
+
+
+def agregar_reaccion(mensajes, usuarios, identificador, usuario):
+    """Agrega una reacción válida a un mensaje.
+
+    Args:
+        mensajes (dict): Diccionario de mensajes.
+        usuarios (list): Usuarios registrados.
+        identificador (int): Identificador del mensaje.
+        usuario (str): Usuario que desea reaccionar.
+
+    Returns:
+        tuple: Cantidad de reacciones y mensaje de error.
+            Si la operación falla, la cantidad es None.
+    """
+    mensaje = validar_reaccion(
+        mensajes, usuarios, identificador, usuario
+    )
+
+    if mensaje != "":
+        return None, mensaje
+
+    autor, texto, reacciones = mensajes[identificador]
 
     nuevas_reacciones = reacciones + [usuario]
     mensajes[identificador] = (autor, texto, nuevas_reacciones)
@@ -17,6 +57,15 @@ def agregar_reaccion(mensajes, usuarios, identificador, usuario):
 
 
 def gestionar_reacciones(mensajes, usuarios):
+    """Gestiona las solicitudes de reacción hasta ingresar FIN.
+
+    Args:
+        mensajes (dict): Diccionario de mensajes.
+        usuarios (list): Usuarios registrados.
+
+    Returns:
+        None: No retorna ningún valor.
+    """
     while True:
         entrada = input("Identificador del mensaje o FIN: ")
 
@@ -31,13 +80,9 @@ def gestionar_reacciones(mensajes, usuarios):
 
         usuario = input("Nombre de usuario: ")
 
-        try:
-            cantidad, mensaje = agregar_reaccion(
-                mensajes, usuarios, identificador, usuario
-            )
-        except KeyError:
-            print("El mensaje no existe.")
-            continue
+        cantidad, mensaje = agregar_reaccion(
+            mensajes, usuarios, identificador, usuario
+        )
 
         if mensaje != "":
             print(mensaje)

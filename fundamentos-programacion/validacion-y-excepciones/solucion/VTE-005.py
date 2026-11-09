@@ -1,106 +1,99 @@
+
 def validar_panel(panel):
-    if not 2 <= len(panel) <= 8:
+    """Valida las dimensiones y los valores del panel."""
+
+    if type(panel) != list:
+        return "El panel debe ser una lista."
+
+    filas = len(panel)
+
+    if filas < 2 or filas > 8:
         return "El panel debe tener entre 2 y 8 filas."
+
+    if type(panel[0]) != list:
+        return "Cada fila debe ser una lista."
 
     columnas = len(panel[0])
 
-    if not 2 <= columnas <= 8:
+    if columnas < 2 or columnas > 8:
         return "El panel debe tener entre 2 y 8 columnas."
 
     for fila in panel:
-        if len(fila) != columnas:
-            return "Todas las filas deben tener la misma cantidad de elementos."
+        if type(fila) != list:
+            return "Cada fila debe ser una lista."
 
-        for luz in fila:
-            if luz not in (0, 1):
-                return "Cada elemento debe valer 0 o 1."
+        if len(fila) != columnas:
+            return "Todas las filas deben tener igual longitud."
+
+        for valor in fila:
+            if type(valor) != int or (valor != 0 and valor != 1):
+                return "Las luces deben tener valores 0 o 1."
 
     return ""
 
 
 def contar_vecinas(panel, fila, columna):
-    encendidas = 0
+    """Cuenta las luces encendidas alrededor de una posición."""
 
-    if fila > 0:
-        encendidas += panel[fila - 1][columna]
+    filas = len(panel)
+    columnas = len(panel[0])
+    cantidad = 0
 
-    if fila < len(panel) - 1:
-        encendidas += panel[fila + 1][columna]
+    desplazamientos = [
+        [-1, 0],  # Arriba
+        [1, 0],   # Abajo
+        [0, -1],  # Izquierda
+        [0, 1]    # Derecha
+    ]
 
-    if columna > 0:
-        encendidas += panel[fila][columna - 1]
+    for desplazamiento in desplazamientos:
+        i = fila + desplazamiento[0]
+        j = columna + desplazamiento[1]
 
-    if columna < len(panel[0]) - 1:
-        encendidas += panel[fila][columna + 1]
+        if 0 <= i < filas and 0 <= j < columnas:
+            cantidad += panel[i][j]
 
-    return encendidas
+    return cantidad
 
 
-def actualizar_panel(panel):
-    mensaje = validar_panel(panel)
+def construir_siguiente_estado(panel):
+    """Construye un nuevo panel aplicando la regla."""
 
-    if mensaje != "":
-        return None, mensaje
+    siguiente = []
 
-    nuevo = []
-
-    for fila in range(len(panel)):
+    for i in range(len(panel)):
         nueva_fila = []
 
-        for columna in range(len(panel[0])):
-            vecinas = contar_vecinas(panel, fila, columna)
+        for j in range(len(panel[i])):
+            vecinas = contar_vecinas(panel, i, j)
 
             if vecinas == 2:
                 nueva_fila.append(1)
             else:
                 nueva_fila.append(0)
 
-        nuevo.append(nueva_fila)
+        siguiente.append(nueva_fila)
 
-    return nuevo, ""
+    return siguiente
+
+
+def siguiente_estado(panel):
+    """Valída el panel y obtiene su siguiente estado."""
+
+    mensaje = validar_panel(panel)
+
+    if mensaje != "":
+        return None, mensaje
+
+    nuevo_panel = construir_siguiente_estado(panel)
+
+    return nuevo_panel, ""
 
 
 def mostrar_panel(panel):
+    """Muestra las filas y columnas de un panel."""
+
     for fila in panel:
-        print(fila)
-
-
-paneles = [
-    [[0, 1, 0], [1, 0, 1], [0, 1, 0]],
-    [[1, 1], [1, 1]],
-    [[1, 1], [0, 0]],
-    [[0, 0], [0, 0]],
-    [[0, 1], [1]],
-    [[0, 2], [1, 0]],
-    [],
-]
-
-for numero, panel in enumerate(paneles, start=1):
-    print(f"\nCaso {numero}")
-
-    nuevo, mensaje = actualizar_panel(panel)
-
-    if mensaje != "":
-        print("Panel rechazado:", mensaje)
-        continue
-
-    print("Panel original:")
-    mostrar_panel(panel)
-
-    print("Siguiente estado:")
-    mostrar_panel(nuevo)
-
-panel = [[1, 1], [0, 0]]
-esperado = [[0, 0], [0, 0]]
-
-nuevo, mensaje = actualizar_panel(panel)
-
-if mensaje == "":
-    print("Actualización correcta:", nuevo == esperado)
-    print("Original conservado:", panel == [[1, 1], [0, 0]])
-
-    # Cambiar el resultado no debe modificar el original ni otra fila.
-    nuevo[0][0] = 1
-
-    print("Original independiente:", panel == [[1, 1], [0, 0]])
-    print("Filas independientes:", nuevo[1] == [0, 0])
+        for valor in fila:
+            print(valor, end=" ")
+        print()
