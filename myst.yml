@@ -95,7 +95,8 @@ project:
             - file: gestion-de-datos-espaciales/ch07/ejercicios-tratamiento-series-temporales.ipynb
 
   static_files:
-    - fundamentos-programacion/procesamiento-de-archivos/datos
+    - fundamentos-programacion/procesamiento-de-archivos/datos/puntajes_2018.txt
+
 site:
   template: book-theme
 
