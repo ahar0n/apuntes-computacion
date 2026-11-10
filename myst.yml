@@ -74,8 +74,13 @@ project:
             - file: fundamentos-programacion/validacion-y-excepciones/ejercicios-validacion-y-excepciones.md
 
 
-        - title: "Persistencia"
+        - title: "Procesamiento de archivos"
           children:
+            - file: fundamentos-programacion/procesamiento-de-archivos/conceptos-basicos.md
+            - file: fundamentos-programacion/procesamiento-de-archivos/apertura-y-cierre.md
+            - file: fundamentos-programacion/procesamiento-de-archivos/lectura-de-archivos.md
+            - file: fundamentos-programacion/procesamiento-de-archivos/escritura-de-archivos.md
+            - file: fundamentos-programacion/procesamiento-de-archivos/ejercicio-reclutamiento.ipynb
 
     - file: gestion-de-datos-espaciales/gestion-de-datos-espaciales.md
       children:
@@ -89,6 +94,8 @@ project:
             - file: gestion-de-datos-espaciales/ch07/tratamiento-de-series-temporales.ipynb
             - file: gestion-de-datos-espaciales/ch07/ejercicios-tratamiento-series-temporales.ipynb
 
+  static_files:
+    - fundamentos-programacion/procesamiento-de-archivos/datos
 site:
   template: book-theme
 
