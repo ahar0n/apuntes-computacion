@@ -80,7 +80,7 @@ project:
             - file: fundamentos-programacion/procesamiento-de-archivos/apertura-y-cierre.md
             - file: fundamentos-programacion/procesamiento-de-archivos/lectura-de-archivos.md
             - file: fundamentos-programacion/procesamiento-de-archivos/escritura-de-archivos.md
-            - file: fundamentos-programacion/procesamiento-de-archivos/ejercicio-reclutamiento.ipynb
+            - file: fundamentos-programacion/procesamiento-de-archivos/ejercicios-tratamiento-de-archivos.ipynb
 
     - file: gestion-de-datos-espaciales/gestion-de-datos-espaciales.md
       children:
@@ -96,6 +96,11 @@ project:
 
   static_files:
     - fundamentos-programacion/procesamiento-de-archivos/datos/puntajes_2018.txt
+    - fundamentos-programacion/procesamiento-de-archivos/datos/consumos.txt
+    - fundamentos-programacion/procesamiento-de-archivos/datos/temperaturas.txt
+    - fundamentos-programacion/procesamiento-de-archivos/datos/mensajes.txt
+    - fundamentos-programacion/procesamiento-de-archivos/datos/sensor_a.txt
+    - fundamentos-programacion/procesamiento-de-archivos/datos/sensor_b.txt
 
 site:
   template: book-theme
