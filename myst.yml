@@ -94,6 +94,11 @@ project:
             - file: gestion-de-datos-espaciales/ch07/tratamiento-de-series-temporales.ipynb
             - file: gestion-de-datos-espaciales/ch07/ejercicios-tratamiento-series-temporales.ipynb
 
+    - file: ingenieria-de-datos/index.md
+      children:
+        - file: ingenieria-de-datos/etl/etl-ejemplo-libreria.ipynb
+
+
   static_files:
     - fundamentos-programacion/procesamiento-de-archivos/datos/puntajes_2018.txt
     - fundamentos-programacion/procesamiento-de-archivos/datos/consumos.txt
@@ -101,6 +106,8 @@ project:
     - fundamentos-programacion/procesamiento-de-archivos/datos/mensajes.txt
     - fundamentos-programacion/procesamiento-de-archivos/datos/sensor_a.txt
     - fundamentos-programacion/procesamiento-de-archivos/datos/sensor_b.txt
+    - ingenieria-de-datos/etl/sql/libreria_db.sql
+    - ingenieria-de-datos/etl/datos/cut_2010_v02.csv
 
 site:
   template: book-theme
