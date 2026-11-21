@@ -1,0 +1,135 @@
+Episodio 1
+Inicio: 1
+Final: 7
+Cantidad de lecturas: 7
+
+Episodio 2
+Inicio: 29
+Final: 29
+Cantidad de lecturas: 1
+
+Episodio 3
+Inicio: 67
+Final: 78
+Cantidad de lecturas: 12
+
+Episodio 4
+Inicio: 114
+Final: 116
+Cantidad de lecturas: 3
+
+Episodio 5
+Inicio: 173
+Final: 198
+Cantidad de lecturas: 26
+
+Episodio 6
+Inicio: 247
+Final: 247
+Cantidad de lecturas: 1
+
+Episodio 7
+Inicio: 288
+Final: 306
+Cantidad de lecturas: 19
+
+Episodio 8
+Inicio: 352
+Final: 359
+Cantidad de lecturas: 8
+
+Episodio 9
+Inicio: 419
+Final: 455
+Cantidad de lecturas: 37
+
+Episodio 10
+Inicio: 508
+Final: 509
+Cantidad de lecturas: 2
+
+Episodio 11
+Inicio: 563
+Final: 576
+Cantidad de lecturas: 14
+
+Episodio 12
+Inicio: 642
+Final: 646
+Cantidad de lecturas: 5
+
+Episodio 13
+Inicio: 718
+Final: 740
+Cantidad de lecturas: 23
+
+Episodio 14
+Inicio: 809
+Final: 809
+Cantidad de lecturas: 1
+
+Episodio 15
+Inicio: 867
+Final: 903
+Cantidad de lecturas: 37
+
+Episodio 16
+Inicio: 946
+Final: 956
+Cantidad de lecturas: 11
+
+Episodio 17
+Inicio: 1031
+Final: 1034
+Cantidad de lecturas: 4
+
+Episodio 18
+Inicio: 1113
+Final: 1141
+Cantidad de lecturas: 29
+
+Episodio 19
+Inicio: 1218
+Final: 1223
+Cantidad de lecturas: 6
+
+Episodio 20
+Inicio: 1307
+Final: 1323
+Cantidad de lecturas: 17
+
+Episodio 21
+Inicio: 1402
+Final: 1402
+Cantidad de lecturas: 1
+
+Episodio 22
+Inicio: 1471
+Final: 1502
+Cantidad de lecturas: 32
+
+Episodio 23
+Inicio: 1584
+Final: 1592
+Cantidad de lecturas: 9
+
+Episodio 24
+Inicio: 1669
+Final: 1689
+Cantidad de lecturas: 21
+
+Episodio 25
+Inicio: 1783
+Final: 1785
+Cantidad de lecturas: 3
+
+Episodio 26
+Inicio: 1851
+Final: 1865
+Cantidad de lecturas: 15
+
+Episodio 27
+Inicio: 1990
+Final: 2016
+Cantidad de lecturas: 27
+
