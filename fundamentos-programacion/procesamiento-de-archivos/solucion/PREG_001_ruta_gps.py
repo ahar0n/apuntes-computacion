@@ -7,26 +7,29 @@ def procesar_recorrido(archivo):
     try:
         fid = open(archivo)
     except FileNotFoundError:
-        print('Archivo no encontrado!')
+        print('ERROR: Archivo no encontrado!')
         return None, None
 
     recorrido = 0
-    tramo_mas_largo = (None, None, 0)
+    tramo_mas_largo = ("", "", 0)
+
     posiciones = DictReader(fid)
-    primero = True
+
+    primera = True
     for actual in posiciones:
-        if primero:
-            anterior = actual
-            primero = False
 
-        dn = float(actual['norte_m']) - float(anterior['norte_m'])
-        de = float(actual['este_m']) - float(anterior['este_m'])
+        if primera:
+            primera = False
 
-        dh = distancia(de, dn)
-        recorrido += dh
+        else:
+            dn = float(actual['norte_m']) - float(anterior['norte_m'])
+            de = float(actual['este_m']) - float(anterior['este_m'])
 
-        if dh > tramo_mas_largo[2]:
-            tramo_mas_largo = anterior['id_punto'], actual['id_punto'], dh
+            dh = distancia(de, dn)
+            recorrido += dh
+
+            if dh > tramo_mas_largo[2]:
+                tramo_mas_largo = anterior['id_punto'], actual['id_punto'], dh
 
         anterior = actual
 
@@ -52,4 +55,4 @@ if __name__ == '__main__':
     archivo_recorrido = "../registros/ruta_gps.wpoint"
     total, mas_largo = procesar_recorrido(archivo_recorrido)
 
-    print(total, mas_largo)
+    print(f"{total:.3f}", mas_largo)
