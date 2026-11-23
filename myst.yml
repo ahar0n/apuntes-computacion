@@ -82,6 +82,7 @@ project:
             - file: fundamentos-programacion/procesamiento-de-archivos/escritura-de-archivos.md
             - file: fundamentos-programacion/procesamiento-de-archivos/ejercicios-tratamiento-de-archivos.ipynb
             - file: fundamentos-programacion/procesamiento-de-archivos/procesamiento-de-registros.ipynb
+            - file: fundamentos-programacion/procesamiento-de-archivos/ejercicios-procesamiento-de-registros.ipynb
 
     - file: gestion-de-datos-espaciales/gestion-de-datos-espaciales.md
       children:
@@ -108,6 +109,10 @@ project:
     - fundamentos-programacion/procesamiento-de-archivos/datos/sensor_a.txt
     - fundamentos-programacion/procesamiento-de-archivos/datos/sensor_b.txt
     - fundamentos-programacion/procesamiento-de-archivos/datos/niveles_ancho_fijo.txt
+    - fundamentos-programacion/procesamiento-de-archivos/registros/ruta_gps.wpoint
+    - fundamentos-programacion/procesamiento-de-archivos/registros/observaciones_rtk.csv
+    - fundamentos-programacion/procesamiento-de-archivos/registros/tramos_nivelacion.csv
+    - fundamentos-programacion/procesamiento-de-archivos/registros/recepcion_gnss.dat
     - ingenieria-de-datos/etl/sql/libreria_db.sql
     - ingenieria-de-datos/etl/datos/cut_2010_v02.csv
 
