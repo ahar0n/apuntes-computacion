@@ -22,10 +22,11 @@ def procesar_recorrido(archivo):
             primera = False
 
         else:
-            dn = float(actual['norte_m']) - float(anterior['norte_m'])
-            de = float(actual['este_m']) - float(anterior['este_m'])
 
-            dh = distancia(de, dn)
+            dh = distancia(
+                float(anterior['este_m']), float(anterior['norte_m']),
+                float(actual['norte_m']), float(actual['norte_m'])
+            )
             recorrido += dh
 
             if dh > tramo_mas_largo[2]:
@@ -38,8 +39,8 @@ def procesar_recorrido(archivo):
     return redondear(recorrido/1000, 3), tramo_mas_largo
 
 
-def distancia(a, b):
-    return hypot(a, b)
+def distancia(e1, n1, e2, n2):
+    return hypot(e2-e1, n2-n1)
 
 
 def redondear(numero, decimales):
